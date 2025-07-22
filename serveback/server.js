@@ -1,4 +1,4 @@
-// Main server file for TechSolutions Pro backend
+// Main server file for LanStartup backend
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -18,6 +18,7 @@ const blogRoutes = require('./routes/blog');
 const portfolioRoutes = require('./routes/portfolio');
 const quoteRoutes = require('./routes/quote');
 const analyticsRoutes = require('./routes/analytics');
+const paymentRoutes = require('./routes/payment');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -35,7 +36,11 @@ app.use(limiter);
 
 // CORS configuration
 const corsOptions = {
-  origin: process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',') : ['http://localhost:5173'],
+  origin: [
+    'https://lanstarter.netlify.app',
+    'http://localhost:5173', // for local development
+    'http://localhost:3000'  // alternative local port
+  ],
   credentials: true,
   optionsSuccessStatus: 200
 };
@@ -52,7 +57,7 @@ app.use(morgan('combined'));
 app.get('/health', (req, res) => {
   res.status(200).json({ 
     status: 'OK', 
-    message: 'TechSolutions Pro API is running',
+    message: 'LanStartup API is running',
     timestamp: new Date().toISOString()
   });
 });
@@ -67,11 +72,12 @@ app.use('/api/blog', blogRoutes);
 app.use('/api/portfolio', portfolioRoutes);
 app.use('/api/quote', quoteRoutes);
 app.use('/api/analytics', analyticsRoutes);
+app.use('/api/payment', paymentRoutes);
 
 // Root endpoint
 app.get('/', (req, res) => {
   res.json({
-    message: 'Welcome to TechSolutions Pro API',
+    message: 'Welcome to LanStartup API',
     version: '1.0.0',
     endpoints: {
       health: '/health',
@@ -83,7 +89,8 @@ app.get('/', (req, res) => {
       blog: '/api/blog',
       portfolio: '/api/portfolio',
       quote: '/api/quote',
-      analytics: '/api/analytics'
+      analytics: '/api/analytics',
+      payment: '/api/payment'
     }
   });
 });
