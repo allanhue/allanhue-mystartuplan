@@ -3,6 +3,7 @@ services:
     name: techsolutions-backend
     env: node
     plan: free
+    rootDir: serveback
     buildCommand: npm install
     startCommand: npm start
     envVars:
