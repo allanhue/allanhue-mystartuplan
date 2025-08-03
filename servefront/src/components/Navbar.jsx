@@ -54,7 +54,7 @@ const Navbar = () => {
                     <span className="text-white font-bold text-sm">TS</span>
                   </div>
                   <span className="text-xl font-bold text-gray-900">
-                    TechSolutions Pro
+                    Lanstar Pro
                   </span>
                 </Link>
               </div>
