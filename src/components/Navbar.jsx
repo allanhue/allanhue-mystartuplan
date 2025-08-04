@@ -3,7 +3,11 @@ import { useState } from 'react';
 import { UserAuth } from '../context/AuthContext';
 
 export default function Navbar() {
-    const { user, logOut } = UserAuth();
+    // Add fallback to avoid destructuring undefined
+    const authContext = UserAuth() || {};
+    const user = authContext.user || null;
+    const logOut = authContext.logOut || (() => {});
+
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (

@@ -41,24 +41,29 @@ class ApiService {
   async submitContactForm(formData, token = null) {
     const dataToSend = {
       ...formData,
-      to: 'centralhype9@gmail.com',  // Add recipient email
+      to: 'centralhype9@gmail.com',
       subject: `New Contact from ${formData.name} - ${formData.company || 'No Company'}`
     };
-    
-    return this.apiCall('/api/contact', {
-      method: 'POST',
-      body: JSON.stringify(dataToSend),
-    }, token);
+    try {
+      return await this.apiCall('/api/lanstartup/contact', {
+        method: 'POST',
+        body: JSON.stringify(dataToSend),
+      }, token);
+    } catch (error) {
+      throw new Error(
+        "Sorry, there was an error sending your message. Please try again or email us directly at allanmwangi329@gmail.com"
+      );
+    }
   }
 
   // Get services data
   async getServices(token = null) {
-    return this.apiCall('/api/services', {}, token);
+    return this.apiCall('/api/lanstartup/services', {}, token);
   }
 
   // Submit project inquiry
   async submitProjectInquiry(projectData) {
-    return this.apiCall('/api/projects', {
+    return this.apiCall('/api/lanstartup/projects', {
       method: 'POST',
       body: JSON.stringify(projectData),
     });
@@ -66,12 +71,12 @@ class ApiService {
 
   // Get testimonials
   async getTestimonials() {
-    return this.apiCall('/api/testimonials');
+    return this.apiCall('/api/lanstartup/testimonials');
   }
 
   // Submit newsletter subscription
   async subscribeNewsletter(email) {
-    return this.apiCall('/api/newsletter', {
+    return this.apiCall('/api/lanstartup/newsletter', {
       method: 'POST',
       body: JSON.stringify({ email }),
     });
@@ -79,17 +84,17 @@ class ApiService {
 
   // Get blog posts
   async getBlogPosts() {
-    return this.apiCall('/api/blog');
+    return this.apiCall('/api/lanstartup/blog');
   }
 
   // Get specific blog post
   async getBlogPost(id) {
-    return this.apiCall(`/api/blog/${id}`);
+    return this.apiCall(`/api/lanstartup/blog/${id}`);
   }
 
   // Analytics tracking
   async trackEvent(eventData) {
-    return this.apiCall('/api/analytics', {
+    return this.apiCall('/api/lanstartup/analytics', {
       method: 'POST',
       body: JSON.stringify(eventData),
     });
@@ -97,12 +102,12 @@ class ApiService {
 
   // Get portfolio/case studies
   async getPortfolio() {
-    return this.apiCall('/api/portfolio');
+    return this.apiCall('/api/lanstartup/portfolio');
   }
 
   // Submit quote request
   async requestQuote(quoteData) {
-    return this.apiCall('/api/quote', {
+    return this.apiCall('/api/lanstartup/quote', {
       method: 'POST',
       body: JSON.stringify(quoteData),
     });
@@ -111,7 +116,7 @@ class ApiService {
   // Health check for backend API connection
   async testBackendConnection() {
     try {
-      const response = await fetch(`${this.baseURL}/health`);
+      const response = await fetch(`${this.baseURL}/api/lanstartup/health`);
       if (!response.ok) throw new Error('Backend health check failed');
       return await response.json();
     } catch (error) {

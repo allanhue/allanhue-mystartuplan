@@ -46,7 +46,7 @@ const Contact = () => {
       console.error('Error submitting form:', error)
       setSubmitStatus({
         success: false,
-        message: 'Sorry, there was an error sending your message. Please try again or email us directly at allanmwangi329@gmail.com'
+        message: "Sorry, there was an error sending your message. Please try again or email us directly at allanmwangi329@gmail.com"
       })
     } finally {
       setIsSubmitting(false)
