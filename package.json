@@ -14,12 +14,16 @@
     "@heroicons/react": "^2.0.18",
     "@supabase/supabase-js": "^2.53.0",
     "firebase": "^10.14.1",
+    "motion": "^12.23.12",
     "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^5.5.0",
     "react-router-dom": "^6.20.0"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@vitejs/plugin-react": "^4.4.0",
