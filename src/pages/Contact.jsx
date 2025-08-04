@@ -186,15 +186,15 @@ const Contact = () => {
                   <div className="text-2xl mr-4">📧</div>
                   <div>
                     <h3 className="font-bold text-black">Email</h3>
-                    <p className="text-gray-600">hello@techsolutionspro.com</p>
-                    <p className="text-gray-600">support@techsolutionspro.com</p>
+                    <p className="text-gray-600">centralhype9@gmail.com</p>
+                    <p className="text-gray-600">centralhype9@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <div className="text-2xl mr-4">📱</div>
                   <div>
                     <h3 className="font-bold text-black">Phone</h3>
-                    <p className="text-gray-600">+254 (0) 700 123 456</p>
+                    <p className="text-gray-600">+254 0731430273</p>
                     <p className="text-gray-600">Available Mon-Fri, 9AM-6PM EAT</p>
                   </div>
                 </div>

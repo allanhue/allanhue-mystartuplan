@@ -1,19 +1,25 @@
+import { backendApiUrl } from '../firebase';
+
 // API service for connecting to Render backend
 const API_BASE_URL = 'https://mystartuplan-back.onrender.com';
 
 class ApiService {
   constructor() {
-    this.baseURL = API_BASE_URL;
+    this.baseURL = backendApiUrl;
   }
 
   // Generic API call method
-  async apiCall(endpoint, options = {}) {
+  async apiCall(endpoint, options = {}, token = null) {
     const url = `${this.baseURL}${endpoint}`;
+    const headers = {
+      'Content-Type': 'application/json',
+      ...options.headers,
+    };
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
     const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        ...options.headers,
-      },
+      headers,
       ...options,
     };
 
@@ -32,25 +38,22 @@ class ApiService {
   }
 
   // Contact form submission
-  async submitContactForm(formData) {
+  async submitContactForm(formData, token = null) {
     const dataToSend = {
       ...formData,
-      to: 'allanmwangi329@gmail.com',  // Add recipient email
+      to: 'centralhype9@gmail.com',  // Add recipient email
       subject: `New Contact from ${formData.name} - ${formData.company || 'No Company'}`
     };
     
     return this.apiCall('/api/contact', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify(dataToSend),
-    });
+    }, token);
   }
 
   // Get services data
-  async getServices() {
-    return this.apiCall('/api/services');
+  async getServices(token = null) {
+    return this.apiCall('/api/services', {}, token);
   }
 
   // Submit project inquiry
@@ -103,6 +106,18 @@ class ApiService {
       method: 'POST',
       body: JSON.stringify(quoteData),
     });
+  }
+
+  // Health check for backend API connection
+  async testBackendConnection() {
+    try {
+      const response = await fetch(`${this.baseURL}/health`);
+      if (!response.ok) throw new Error('Backend health check failed');
+      return await response.json();
+    } catch (error) {
+      console.error('Backend connection test failed:', error);
+      throw error;
+    }
   }
 }
 

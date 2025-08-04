@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route, Link } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Services from './pages/Services'
 import DataScience from './pages/DataScience'
@@ -7,45 +7,14 @@ import ZohoOdoo from './pages/ZohoOdoo'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import './App.css'
+import Navbar from './components/Navbar';
+
 
 const App = () => {
   return (
     <HashRouter>
       <div className="min-h-screen bg-white">
-        {/* Professional Navigation Header */}
-        <header className="bg-black text-white shadow-lg">
-          <nav className="container mx-auto px-6 py-4">
-            <div className="flex items-center justify-between">
-              <div className="text-2xl font-bold">
-                <Link to="/" className="hover:text-gray-300 transition-colors">
-                  Lanstar Solutions
-                </Link>
-              </div>
-              <div className="hidden md:flex space-x-8">
-                <Link to="/" className="hover:text-gray-300 transition-colors font-medium">
-                  Home
-                </Link>
-                <Link to="/services" className="hover:text-gray-300 transition-colors font-medium">
-                  Services
-                </Link>
-                <Link to="/about" className="hover:text-gray-300 transition-colors font-medium">
-                  About
-                </Link>
-                <Link to="/contact" className="hover:text-gray-300 transition-colors font-medium">
-                  Contact
-                </Link>
-              </div>
-              <div className="md:hidden">
-                <button className="text-white focus:outline-none">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </nav>
-        </header>
-
+        <Navbar />
         {/* Main Content */}
         <main>
           <Routes>
@@ -56,9 +25,9 @@ const App = () => {
             <Route path="/zoho-odoo" element={<ZohoOdoo />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            {/* ...add login, signup, profile routes if needed... */}
           </Routes>
         </main>
-
         {/* Footer */}
         <footer className="bg-black text-white py-8 mt-16">
           <div className="container mx-auto px-6 text-center">
@@ -71,4 +40,5 @@ const App = () => {
   )
 }
 
-export default App
+export default App;
+ 
