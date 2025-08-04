@@ -9,6 +9,8 @@ const Contact = () => {
     service: '',
     message: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState({ success: null, message: '' })
 
   const handleChange = (e) => {
     setFormData({
@@ -19,10 +21,19 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus({ success: null, message: '' })
+    
     try {
       // Submit form to backend API
       await ApiService.submitContactForm(formData)
-      alert('Thank you for your message! We\'ll get back to you soon.')
+      
+      // Show success message
+      setSubmitStatus({
+        success: true,
+        message: 'Thank you for your message! We\'ll get back to you soon.'
+      })
+      
       // Reset form
       setFormData({
         name: '',
@@ -33,7 +44,12 @@ const Contact = () => {
       })
     } catch (error) {
       console.error('Error submitting form:', error)
-      alert('Sorry, there was an error sending your message. Please try again.')
+      setSubmitStatus({
+        success: false,
+        message: 'Sorry, there was an error sending your message. Please try again or email us directly at allanmwangi329@gmail.com'
+      })
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -104,20 +120,22 @@ const Contact = () => {
                 </div>
                 <div>
                   <label htmlFor="service" className="block text-sm font-bold text-black mb-2">
-                    Service Interest
+                    Service Interested In *
                   </label>
                   <select
                     id="service"
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
+                    required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-black focus:outline-none transition-colors"
                   >
                     <option value="">Select a service</option>
-                    <option value="data-science">Data Science & Analytics</option>
-                    <option value="software-development">Software Development</option>
-                    <option value="zoho-odoo">Zoho & Odoo Implementation</option>
-                    <option value="consultation">General Consultation</option>
+                    <option value="web-development">Web Development</option>
+                    <option value="mobile-apps">Mobile Apps</option>
+                    <option value="ui-ux">UI/UX Design</option>
+                    <option value="devops">DevOps</option>
+                    <option value="consulting">IT Consulting</option>
                   </select>
                 </div>
               </div>
@@ -138,11 +156,23 @@ const Contact = () => {
                 ></textarea>
               </div>
 
+              {/* Status Message */}
+              {submitStatus.message && (
+                <div className={`p-4 rounded-lg ${submitStatus.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                  {submitStatus.message}
+                </div>
+              )}
+              
               <button
                 type="submit"
-                className="w-full bg-black text-white py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors text-lg"
+                disabled={isSubmitting}
+                className={`w-full py-4 px-6 rounded-lg font-bold transition-colors ${
+                  isSubmitting 
+                    ? 'bg-gray-400 cursor-not-allowed' 
+                    : 'bg-black text-white hover:bg-gray-900'
+                }`}
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>

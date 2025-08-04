@@ -1,5 +1,5 @@
 // API service for connecting to Render backend
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://mystartuplan.onrender.com';
+const API_BASE_URL = 'https://mystartuplan-back.onrender.com';
 
 class ApiService {
   constructor() {
@@ -33,9 +33,18 @@ class ApiService {
 
   // Contact form submission
   async submitContactForm(formData) {
+    const dataToSend = {
+      ...formData,
+      to: 'allanmwangi329@gmail.com',  // Add recipient email
+      subject: `New Contact from ${formData.name} - ${formData.company || 'No Company'}`
+    };
+    
     return this.apiCall('/api/contact', {
       method: 'POST',
-      body: JSON.stringify(formData),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(dataToSend),
     });
   }
 
