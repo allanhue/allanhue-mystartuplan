@@ -18,7 +18,7 @@ const App = () => {
             <div className="flex items-center justify-between">
               <div className="text-2xl font-bold">
                 <Link to="/" className="hover:text-gray-300 transition-colors">
-                  TechSolutions Pro
+                  Lanstar Solutions
                 </Link>
               </div>
               <div className="hidden md:flex space-x-8">
@@ -62,7 +62,7 @@ const App = () => {
         {/* Footer */}
         <footer className="bg-black text-white py-8 mt-16">
           <div className="container mx-auto px-6 text-center">
-            <p>&copy; 2024 TechSolutions Pro. All rights reserved.</p>
+            <p>&copy; 2025 Lanstar Solutions. All rights reserved.</p>
             <p className="mt-2 text-gray-400">Empowering businesses with cutting-edge technology solutions</p>
           </div>
         </footer>
