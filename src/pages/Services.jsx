@@ -22,11 +22,21 @@ const Services = () => {
     <div className="bg-white py-16 min-h-screen">
       <div className="container mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold mb-6 text-black">Our Services</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We provide comprehensive technology solutions to help your business thrive in the digital age
-          </p>
+        <div
+          className="text-center mb-16 py-16 rounded-lg"
+          style={{
+            background: "url('/WhatsApp Image 2025-08-05 at 12.21.56_e942a514.jpg') center/cover no-repeat",
+            color: "#fff",
+            position: "relative",
+          }}
+        >
+          <div className="absolute inset-0 bg-black bg-opacity-60 rounded-lg"></div>
+          <div className="relative z-10">
+            <h1 className="text-5xl font-bold mb-6">Our Services</h1>
+            <p className="text-xl max-w-3xl mx-auto">
+              We provide comprehensive technology solutions to help your business thrive in the digital age
+            </p>
+          </div>
         </div>
 
         {/* Services Grid */}

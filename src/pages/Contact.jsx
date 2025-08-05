@@ -54,7 +54,12 @@ const Contact = () => {
   }
 
   return (
-    <div className="bg-white py-16">
+    <div
+      className="bg-white py-16"
+      style={{
+        background: "url('/WhatsApp Image 2025-08-05 at 12.26.04_1599cfbc.jpg') center/cover no-repeat",
+      }}
+    >
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">

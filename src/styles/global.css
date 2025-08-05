@@ -1,9 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Base styles - using CSS variables for theming */
+@import './theme.css';
 
+/* Import Tailwind base styles */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom base styles */
 @layer base {
   :root {
+    /* Light theme colors */
+    --color-bg: #ffffff;
+    --color-bg-dark: #000000;
+    --color-text: #000000;
+    --color-text-dark: #ffffff;
+    --color-border: #000000;
+    --color-primary: #000000;
+    --color-primary-hover: #222222;
+    --color-secondary: #ffffff;
+    --color-accent: #000000;
+    --color-error: #ef4444;
+    --color-success: #10b981;
     --color-primary-50: #f0f9ff;
     --color-primary-100: #e0f2fe;
     --color-primary-200: #bae6fd;
@@ -96,63 +113,89 @@
   }
   
   body {
-    @apply font-sans text-base text-neutral-900 bg-white;
     font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-text);
+    background: var(--color-bg);
+    transition: background 0.2s, color 0.2s;
     line-height: 1.5;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold text-neutral-900 leading-tight tracking-tight;
+    font-family: var(--font-display);
+    font-weight: bold;
+    color: var(--color-text);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
     margin-bottom: 0.5em;
   }
   
-  h1 { @apply text-4xl md:text-5xl; }
-  h2 { @apply text-3xl md:text-4xl; }
-  h3 { @apply text-2xl md:text-3xl; }
-  h4 { @apply text-xl md:text-2xl; }
-  h5 { @apply text-lg md:text-xl; }
-  h6 { @apply text-base md:text-lg; }
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.875rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+  h5 { font-size: 1.125rem; }
+  h6 { font-size: 1rem; }
   
   p {
-    @apply mb-4 text-neutral-700 leading-relaxed;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+    line-height: 1.7;
   }
   
   a {
-    @apply text-primary-600 hover:text-primary-700 transition-colors duration-200;
-    text-decoration: none;
+    color: var(--color-primary);
+    transition: color 0.2s;
+    text-decoration: underline;
+  }
+  a:hover {
+    color: var(--color-primary-hover);
+    background: var(--color-bg-dark);
+    color: var(--color-text-dark);
   }
   
-  /* Form elements */
-  input,
-  button,
-  select,
-  textarea {
-    @apply font-sans text-base;
+  input, textarea, select {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  input::placeholder, textarea::placeholder {
+    color: #888;
+    opacity: 0.7;
+  }
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px #000;
   }
   
   button,
   .btn {
-    @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--color-border);
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    color: var(--color-bg);
+    background: var(--color-primary);
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s, color 0.2s;
   }
-  
-  .btn-secondary {
-    @apply bg-secondary-600 hover:bg-secondary-700 focus:ring-secondary-500;
+  button:hover,
+  .btn:hover {
+    background: var(--color-bg);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
   }
-  
-  .btn-outline {
-    @apply bg-transparent border border-neutral-300 text-neutral-700 hover:bg-neutral-50 focus:ring-primary-500;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  input[type="number"],
-  input[type="tel"],
-  textarea,
-  select {
-    @apply w-full px-3 py-2 border border-neutral-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200;
-  }
-  
+
   /* Utilities */
   .container {
     @apply w-full px-4 mx-auto;
@@ -260,6 +303,10 @@
   }
   
   /* Buttons */
+  .btn {
+    @apply transition-all duration-200 ease-in-out transform active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary/50;
+  }
+  
   .btn-lg {
     @apply px-6 py-3 text-base;
   }
@@ -318,3 +365,4 @@
     background-color: var(--color-neutral-400);
   }
 }
+

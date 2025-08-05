@@ -1,41 +1,81 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
+import { applyTheme, getThemeColor, themeConfig } from './theme-utils';
 
 // Theme context
 export const ThemeContext = createContext({
-  theme: 'light',
+  theme: 'dark', // Default to dark theme
   toggleTheme: () => {},
-  isDarkMode: false,
+  isDarkMode: true,
+  colors: themeConfig.colors.dark,
+  getColor: (path) => getThemeColor('dark', path),
 });
 
 // Theme provider component
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
   const [isMounted, setIsMounted] = useState(false);
+
+  // Get system preference
+  const prefersDarkMode = useCallback(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }, []);
 
   // Set theme on initial load
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = localStorage.getItem('theme') || (prefersDarkMode() ? 'dark' : 'light');
     setTheme(savedTheme);
-    document.documentElement.setAttribute('data-theme', savedTheme);
+    applyTheme(savedTheme);
     setIsMounted(true);
-  }, []);
+  }, [prefersDarkMode]);
 
   // Toggle between light and dark theme
-  const toggleTheme = () => {
+  const toggleTheme = useCallback(() => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-  };
+    applyTheme(newTheme);
+  }, [theme]);
 
-  // Prevent flash of unstyled content
+  // Set up theme change listener for system preference
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    const handleChange = () => {
+      if (localStorage.getItem('theme') === null) {
+        const newTheme = mediaQuery.matches ? 'dark' : 'light';
+        setTheme(newTheme);
+        applyTheme(newTheme);
+      }
+    };
+    
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  // Memoize context value to prevent unnecessary re-renders
+  const themeContextValue = useMemo(() => ({
+    theme,
+    toggleTheme,
+    isDarkMode: theme === 'dark',
+    colors: themeConfig.colors[theme],
+    getColor: (path) => getThemeColor(theme, path),
+  }), [theme, toggleTheme]);
+
+  // Move conditional rendering after all hooks
   if (!isMounted) {
-    return null;
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-bg-primary">
+        <div className="w-12 h-12 border-4 border-primary rounded-full border-t-transparent animate-spin"></div>
+      </div>
+    );
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, isDarkMode: theme === 'dark' }}>
-      <div className={`theme-${theme} min-h-screen bg-white dark:bg-neutral-900 transition-colors duration-200`}>
+    <ThemeContext.Provider value={themeContextValue}>
+      <div className={`theme-${theme} min-h-screen bg-bg-primary text-text-primary transition-colors duration-200`}>
         {children}
       </div>
     </ThemeContext.Provider>

@@ -18,7 +18,7 @@ const App = () => {
   const { theme } = useTheme();
 
   return (
-    <div className={`min-h-screen bg-white dark:bg-neutral-900 transition-colors duration-200 ${theme}`}>
+    <div className="min-h-screen bg-white text-black transition-colors duration-200">
       <Navbar />
       
       {/* Main Content */}
@@ -56,12 +56,12 @@ const App = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white dark:bg-neutral-800 border-t border-gray-200 dark:border-neutral-700 py-8 mt-16">
+      <footer className="bg-black border-t border-black py-8 mt-16 text-white">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Lanstar Solutions</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">
+              <h3 className="text-lg font-semibold text-white mb-2">Lanstar Solutions</h3>
+              <p className="text-gray-300 text-sm">
                 Empowering businesses with cutting-edge technology solutions
               </p>
             </div>
@@ -86,18 +86,18 @@ const App = () => {
               </a>
             </div>
           </div>
-          <div className="mt-8 border-t border-gray-200 dark:border-neutral-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-500 dark:text-gray-400 text-sm">
+          <div className="mt-8 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 text-sm">
               &copy; {new Date().getFullYear()} Lanstar Solutions. All rights reserved.
             </p>
             <div className="mt-4 md:mt-0 flex space-x-6">
-              <a href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white text-sm transition-colors">
+              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
                 Privacy Policy
               </a>
-              <a href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white text-sm transition-colors">
+              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
                 Terms of Service
               </a>
-              <a href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white text-sm transition-colors">
+              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
                 Contact Us
               </a>
             </div>

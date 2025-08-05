@@ -98,10 +98,14 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-gradient-to-br from-primary-50 to-primary-100 dark:from-neutral-900 dark:to-neutral-800">
-        <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iMC4yIj48cGF0aCBkPSJNMjEuOTk5IDI4YzAgMi4yMDktMS43OSA0LTQgNHMtNC0xLjc5MS00LTRjMC0yLjIwOSAxLjc5LTQgNC00czQgMS43OTEgNCA0ek0xMy4yOTcgMTcuMjE4YzAgMS41NTItMS4yNjEgMi44MTEtMi44MTcgMi44MTFzLTIuODE3LTEuMjU5LTIuODE3LTIuODFjMC0xLjU1MiAxLjI2MS0yLjgxMSAyLjgxNy0yLjgxMXMyLjgxNyAxLjI1OSAyLjgxNyAyLjgxek0yOS42MTcgMTcuMjE4YzAgMS41NTItMS4yNjEgMi44MTEtMi44MTcgMi44MTFzLTIuODE3LTEuMjU5LTIuODE3LTIuODFjMC0xLjU1MiAxLjI2MS0yLjgxMSAyLjgxNy0yLjgxMXMyLjgxNyAxLjI1OSAyLjgxNyAyLjgxWiIvPjwvZz48L2c+PC9zdmc+')]" />
-        
-        <div className="container mx-auto px-4">
+      <section
+        className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden"
+        style={{
+          background: "url('/WhatsApp Image 2025-08-05 at 12.26.03_6915dcc9.jpg') center/cover no-repeat",
+        }}
+      >
+        <div className="absolute inset-0 bg-white bg-opacity-80"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial="hidden"
             animate="visible"
