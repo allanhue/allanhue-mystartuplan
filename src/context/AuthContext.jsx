@@ -14,14 +14,14 @@ export const AuthProvider = ({ children }) => {
     const signUp = async (email, password) => {
         const { data, error } = await supabase.auth.signUp({ email, password });
         if (error) throw error;
-        setUser(data.user);
+        setUser(data.user ?? null);
         return data.user;
     };
 
     const signIn = async (email, password) => {
         const { data, error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
-        setUser(data.user);
+        setUser(data.user ?? null);
         return data.user;
     };
 
@@ -36,6 +36,11 @@ export const AuthProvider = ({ children }) => {
             setUser(session?.user ?? null);
             setLoading(false);
         });
+        // Get current session on mount
+        supabase.auth.getSession().then(({ data }) => {
+            setUser(data?.session?.user ?? null);
+            setLoading(false);
+        });
         return () => listener?.subscription?.unsubscribe();
     }, []);
 
@@ -46,5 +51,4 @@ export const AuthProvider = ({ children }) => {
     );
 };
 
-export const useAuth = () => useContext(AuthContext);
 export const UserAuth = () => useContext(AuthContext);

@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { UserAuth } from '../context/AuthContext';
 import { FiMail, FiLock, FiUser, FiAlertCircle, FiCheckCircle, FiArrowRight } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 
 const AuthComponent = () => {
-  const { user, signUp, signIn, logout } = UserAuth();
+  const { user, signUp, signIn, logOut } = UserAuth();
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     email: '',
@@ -63,11 +65,18 @@ const AuthComponent = () => {
     setError('');
     setMessage('');
 
+    if (!formData.email || !formData.password) {
+      setError('Email and password are required');
+      setLoading(false);
+      return;
+    }
+
     try {
       if (isLogin) {
         // Login
         await signIn(formData.email, formData.password);
         setMessage('Successfully logged in!');
+        navigate('/profile');
       } else {
         // Register
         if (formData.password !== formData.confirmPassword) {
@@ -82,6 +91,7 @@ const AuthComponent = () => {
         }
         await signUp(formData.email, formData.password);
         setMessage('Account created successfully! Please check your email for verification.');
+        navigate('/profile');
       }
     } catch (err) {
       console.error('Auth error:', err);

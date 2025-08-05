@@ -25,12 +25,16 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    if (!email || !password) {
+      setError('Email and password are required');
+      return;
+    }
     if (!validateForm()) return;
     try {
       await signIn(email, password);
       navigate('/profile');
     } catch (err) {
-      setError(err.message);
+      setError(err.message || 'Login failed');
       console.log(err);
     }
   };

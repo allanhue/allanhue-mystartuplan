@@ -114,17 +114,8 @@ class ApiService {
     });
   }
 
-  // Health check for backend API connection
-  async testBackendConnection() {
-    try {
-      const response = await fetch(`${this.baseURL}/api/lanstartup/health`);
-      if (!response.ok) throw new Error('Backend health check failed');
-      return await response.json();
-    } catch (error) {
-      console.error('Backend connection test failed:', error);
-      throw error;
-    }
+
   }
-}
+
 
 export default new ApiService();

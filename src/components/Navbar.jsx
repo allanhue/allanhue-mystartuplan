@@ -57,7 +57,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 to={link.path}
-                className="px-3 py-2 rounded-md text-sm font-medium text-neutral-700 hover:text-primary-600 dark:text-neutral-300 dark:hover:text-primary-400 transition-colors duration-200"
+                className="px-3 py-2 rounded-md text-sm font-medium text-neutral-700 hover:text-primary-600 dark:text-neutral-300 dark:hover:text-primary-400 transition-colors duration-200 no-underline"
               >
                 {link.name}
               </Link>
@@ -73,7 +73,7 @@ export default function Navbar() {
               <div className="flex items-center space-x-4">
                 <Link
                   to="/profile"
-                  className="flex items-center space-x-2 text-sm font-medium text-neutral-700 hover:text-primary-600 dark:text-neutral-300 dark:hover:text-primary-400 transition-colors duration-200"
+                  className="flex items-center space-x-2 text-sm font-medium text-neutral-700 hover:text-primary-600 dark:text-neutral-300 dark:hover:text-primary-400 transition-colors duration-200 no-underline"
                 >
                   <FiUser className="w-5 h-5" />
                   <span>Profile</span>
@@ -89,7 +89,7 @@ export default function Navbar() {
             ) : (
               <Link
                 to="/login"
-                className="flex items-center space-x-2 text-sm font-medium text-neutral-700 hover:text-primary-600 dark:text-neutral-300 dark:hover:text-primary-400 transition-colors duration-200"
+                className="flex items-center space-x-2 text-sm font-medium text-neutral-700 hover:text-primary-600 dark:text-neutral-300 dark:hover:text-primary-400 transition-colors duration-200 no-underline"
               >
                 <FiLogIn className="w-5 h-5" />
                 <span>Login</span>
@@ -127,7 +127,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               to={link.path}
-              className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:text-primary-400 dark:hover:bg-neutral-800 transition-colors duration-200"
+              className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:text-primary-400 dark:hover:bg-neutral-800 transition-colors duration-200 no-underline"
               onClick={() => setMenuOpen(false)}
             >
               {link.name}
@@ -138,7 +138,7 @@ export default function Navbar() {
             <>
               <Link
                 to="/profile"
-                className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:text-primary-400 dark:hover:bg-neutral-800 transition-colors duration-200"
+                className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:text-primary-400 dark:hover:bg-neutral-800 transition-colors duration-200 no-underline"
                 onClick={() => setMenuOpen(false)}
               >
                 Profile
@@ -156,7 +156,7 @@ export default function Navbar() {
           ) : (
             <Link
               to="/login"
-              className="block px-3 py-2 rounded-md text-base font-medium text-primary-600 hover:bg-primary-50 dark:text-primary-400 dark:hover:bg-neutral-800 transition-colors duration-200"
+              className="block px-3 py-2 rounded-md text-base font-medium text-primary-600 hover:bg-primary-50 dark:text-primary-400 dark:hover:bg-neutral-800 transition-colors duration-200 no-underline"
               onClick={() => setMenuOpen(false)}
             >
               Login / Register

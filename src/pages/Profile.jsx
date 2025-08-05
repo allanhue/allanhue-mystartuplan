@@ -11,16 +11,7 @@ const Profile = () => {
   useEffect(() => {
     // Example: Fetch additional profile data from API if needed
     const fetchProfile = async () => {
-      if (user?.email) {
-        try {
-          // Replace with your actual API endpoint if needed
-          // const data = await ApiService.getProfile(user.email);
-          // setProfileData(data);
-          setProfileData({ email: user.email }); // fallback to basic info
-        } catch (error) {
-          setProfileData({ email: user.email });
-        }
-      }
+      setProfileData({ email: user?.email });
     };
     fetchProfile();
   }, [user]);
