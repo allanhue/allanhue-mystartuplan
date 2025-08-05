@@ -1,213 +1,269 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaChartLine, FaCode, FaCogs, FaLaptopCode, FaArrowRight } from 'react-icons/fa';
+import { FiArrowRight, FiCheckCircle, FiShield, FiZap, FiDollarSign, FiClock } from 'react-icons/fi';
+
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 100,
+      damping: 10,
+    },
+  },
+};
+
+const features = [
+  {
+    title: 'Expert Technicians',
+    description: 'Our certified technicians have years of experience in handling all types of technical issues.',
+    icon: <FiShield className="w-8 h-8 text-primary-600 dark:text-primary-400" />,
+  },
+  {
+    title: 'Fast Response',
+    description: 'We offer quick response times to ensure your technical issues are resolved as soon as possible.',
+    icon: <FiZap className="w-8 h-8 text-primary-600 dark:text-primary-400" />,
+  },
+  {
+    title: 'Affordable Pricing',
+    description: 'High-quality services at competitive prices with no hidden fees.',
+    icon: <FiDollarSign className="w-8 h-8 text-primary-600 dark:text-primary-400" />,
+  },
+  {
+    title: '24/7 Support',
+    description: 'Round-the-clock support to assist you whenever you need help.',
+    icon: <FiClock className="w-8 h-8 text-primary-600 dark:text-primary-400" />,
+  },
+];
+
+const services = [
+  {
+    name: 'IT Support',
+    description: 'Professional IT support services for businesses and individuals.',
+    icon: '💻',
+    path: '/services/it-support',
+  },
+  {
+    name: 'Network Setup',
+    description: 'Complete network infrastructure setup and configuration.',
+    icon: '🌐',
+    path: '/services/network-setup',
+  },
+  {
+    name: 'Data Recovery',
+    description: 'Expert data recovery services for all types of storage devices.',
+    icon: '💾',
+    path: '/services/data-recovery',
+  },
+  {
+    name: 'Cybersecurity',
+    description: 'Protect your systems from threats with our security solutions.',
+    icon: '🔒',
+    path: '/services/cybersecurity',
+  },
+];
 
 const Home = () => {
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
-
-  const stagger = {
-    visible: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
   return (
-    <div className="bg-gray-50">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-indigo-900 to-purple-900 text-white py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/[0.05]" />
-        <div className="container mx-auto px-6 relative z-10 text-center">
+      <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-gradient-to-br from-primary-50 to-primary-100 dark:from-neutral-900 dark:to-neutral-800">
+        <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iMC4yIj48cGF0aCBkPSJNMjEuOTk5IDI4YzAgMi4yMDktMS43OSA0LTQgNHMtNC0xLjc5MS00LTRjMC0yLjIwOSAxLjc5LTQgNC00czQgMS43OTEgNCA0ek0xMy4yOTcgMTcuMjE4YzAgMS41NTItMS4yNjEgMi44MTEtMi44MTcgMi44MTFzLTIuODE3LTEuMjU5LTIuODE3LTIuODFjMC0xLjU1MiAxLjI2MS0yLjgxMSAyLjgxNy0yLjgxMXMyLjgxNyAxLjI1OSAyLjgxNyAyLjgxek0yOS42MTcgMTcuMjE4YzAgMS41NTItMS4yNjEgMi44MTEtMi44MTcgMi44MTFzLTIuODE3LTEuMjU5LTIuODE3LTIuODFjMC0xLjU1MiAxLjI2MS0yLjgxMSAyLjgxNy0yLjgxMXMyLjgxNyAxLjI1OSAyLjgxNyAyLjgxWiIvPjwvZz48L2c+PC9zdmc+')]" />
+        
+        <div className="container mx-auto px-4">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Transforming Businesses with{' '}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-pink-400">
-                Innovative Tech Solutions
+            <motion.h1 
+              variants={itemVariants}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 dark:text-white mb-6 leading-tight"
+            >
+              Professional IT Solutions for{' '}
+              <span className="bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
+                Your Business
               </span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto">
-              We specialize in Data Science, Software Development, and Business Automation to drive your success
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/contact"
-                className="px-8 py-4 bg-white text-indigo-900 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:-translate-y-1 hover:shadow-lg inline-flex items-center justify-center"
-              >
-                Get Free Consultation
-                <FaArrowRight className="ml-2" />
-              </Link>
+            </motion.h1>
+            
+            <motion.p 
+              variants={itemVariants}
+              className="text-lg md:text-xl text-neutral-700 dark:text-neutral-300 mb-10 max-w-2xl mx-auto"
+            >
+              We provide comprehensive IT services and support to help your business thrive in the digital world.
+            </motion.p>
+            
+            <motion.div 
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row justify-center gap-4"
+            >
               <Link
                 to="/services"
-                className="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-all transform hover:-translate-y-1"
+                className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
               >
-                Explore Services
+                Our Services
+                <FiArrowRight className="ml-2 h-5 w-5" />
               </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Services Overview */}
-      <section className="py-20 relative">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <span className="text-indigo-600 font-semibold mb-2 inline-block">OUR SERVICES</span>
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Solutions That Drive Success</h2>
-            <div className="w-20 h-1 bg-indigo-600 mx-auto"></div>
-          </motion.div>
-
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {/* Data Science */}
-            <motion.div
-              variants={fadeInUp}
-              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-indigo-100"
-            >
-              <div className="w-16 h-16 bg-indigo-50 rounded-lg flex items-center justify-center mb-6 text-indigo-600">
-                <FaChartLine className="w-8 h-8" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Data Science & Analytics</h3>
-              <p className="text-gray-600 mb-6">
-                Transform your raw data into actionable insights with our advanced analytics and machine learning solutions.
-              </p>
               <Link
-                to="/data-science"
-                className="text-indigo-600 font-semibold inline-flex items-center hover:text-indigo-700 group transition-colors"
+                to="/contact"
+                className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-primary-700 bg-white hover:bg-neutral-50 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
               >
-                Learn more
-                <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </motion.div>
-
-            {/* Software Development */}
-            <motion.div
-              variants={fadeInUp}
-              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-indigo-100"
-            >
-              <div className="w-16 h-16 bg-indigo-50 rounded-lg flex items-center justify-center mb-6 text-indigo-600">
-                <FaCode className="w-8 h-8" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Software Development</h3>
-              <p className="text-gray-600 mb-6">
-                Custom software solutions tailored to your business needs using the latest technologies.
-              </p>
-              <Link
-                to="/software-development"
-                className="text-indigo-600 font-semibold inline-flex items-center hover:text-indigo-700 group transition-colors"
-              >
-                Learn more
-                <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </motion.div>
-
-            {/* Zoho/Odoo */}
-            <motion.div
-              variants={fadeInUp}
-              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-indigo-100"
-            >
-              <div className="w-16 h-16 bg-indigo-50 rounded-lg flex items-center justify-center mb-6 text-indigo-600">
-                <FaCogs className="w-8 h-8" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Zoho/Odoo Implementation</h3>
-              <p className="text-gray-600 mb-6">
-                Streamline your business processes with our expert Zoho and Odoo implementation services.
-              </p>
-              <Link
-                to="/zoho-odoo"
-                className="text-indigo-600 font-semibold inline-flex items-center hover:text-indigo-700 group transition-colors"
-              >
-                Learn more
-                <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </motion.div>
-
-            {/* IT Support */}
-            <motion.div
-              variants={fadeInUp}
-              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-indigo-100"
-            >
-              <div className="w-16 h-16 bg-indigo-50 rounded-lg flex items-center justify-center mb-6 text-indigo-600">
-                <FaLaptopCode className="w-8 h-8" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">IT Support</h3>
-              <p className="text-gray-600 mb-6">
-                Comprehensive IT support services to keep your business running smoothly 24/7.
-              </p>
-              <Link
-                to="/it-support"
-                className="text-indigo-600 font-semibold inline-flex items-center hover:text-indigo-700 group transition-colors"
-              >
-                Learn more
-                <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                Get a Free Quote
               </Link>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-20 bg-gradient-to-br from-indigo-50 to-white">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <span className="text-indigo-600 font-semibold mb-2 inline-block">WHY CHOOSE US</span>
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Your Trusted Technology Partner</h2>
-            <div className="w-20 h-1 bg-indigo-600 mx-auto"></div>
-          </motion.div>
+      {/* Features Section */}
+      <section className="py-16 md:py-24 bg-white dark:bg-neutral-900">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-4">
+              Why Choose Us
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full"></div>
+          </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Expert Team',
-                description: 'Our team of certified professionals brings years of experience and expertise to every project.'
-              },
-              {
-                title: 'Client-Centric Approach',
-                description: 'We prioritize your business goals and work closely with you to achieve outstanding results.'
-              },
-              {
-                title: 'Cutting-Edge Technology',
-                description: 'We leverage the latest technologies and methodologies to deliver innovative solutions.'
-              }
-            ].map((item, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+                variants={itemVariants}
+                className="bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
               >
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
+                <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-primary-50 dark:bg-neutral-700 text-primary-600 dark:text-primary-400 mb-4">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-neutral-600 dark:text-neutral-400">
+                  {feature.description}
+                </p>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-16 md:py-24 bg-neutral-50 dark:bg-neutral-800">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-4">
+              Our Services
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full mb-8"></div>
+            <p className="text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+              We offer a wide range of IT services to meet your business needs.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={itemVariants}
+                whileHover={{ y: -5 }}
+                className="group bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-neutral-200 dark:border-neutral-700"
+              >
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary-50 dark:bg-neutral-700 flex items-center justify-center text-2xl mr-4">
+                    {service.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                      {service.name}
+                    </h3>
+                    <p className="text-neutral-600 dark:text-neutral-400 mb-4">
+                      {service.description}
+                    </p>
+                    <Link
+                      to={service.path}
+                      className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                    >
+                      Learn more
+                      <FiArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              to="/services"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200"
+            >
+              View All Services
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-r from-primary-600 to-accent-500">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+            className="max-w-3xl mx-auto"
+          >
+            <motion.h2 
+              variants={itemVariants}
+              className="text-3xl md:text-4xl font-bold text-white mb-6"
+            >
+              Ready to Transform Your Business?
+            </motion.h2>
+            <motion.p 
+              variants={itemVariants}
+              className="text-xl text-white/90 mb-8"
+            >
+              Get in touch with our team today and let's discuss how we can help your business grow.
+            </motion.p>
+            <motion.div 
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row justify-center gap-4"
+            >
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-primary-600 bg-white hover:bg-neutral-100 transition-colors duration-200"
+              >
+                Contact Us
+              </Link>
+              <Link
+                to="/about"
+                className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-white border-2 border-white hover:bg-white/10 transition-colors duration-200"
+              >
+                Learn More About Us
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </div>
