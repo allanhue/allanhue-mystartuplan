@@ -1,11 +1,12 @@
 import { backendApiUrl } from '../superbaseClient';
 
-// API service for connecting to Render backend
-const API_BASE_URL = 'https://mystartuplan-back.onrender.com';
+// API service for connecting to mystartuplan_back backend
+// Update the default fallback to your backend's deployed URL if needed
+const API_BASE_URL = backendApiUrl || 'https://mystartuplan-back.onrender.com';
 
 class ApiService {
   constructor() {
-    this.baseURL = backendApiUrl;
+    this.baseURL = API_BASE_URL;
   }
 
   // Generic API call method

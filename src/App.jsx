@@ -109,3 +109,5 @@ const App = () => {
 };
 
 export default App;
+
+// All pages/components use ApiService for backend communication.

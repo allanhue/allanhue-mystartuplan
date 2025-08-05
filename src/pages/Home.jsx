@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiCheckCircle, FiShield, FiZap, FiDollarSign, FiClock } from 'react-icons/fi';
+import { useEffect, useState } from 'react';
+import ApiService from '../services/api';
 
 // Animation variants
 const containerVariants = {
@@ -78,6 +80,21 @@ const services = [
 ];
 
 const Home = () => {
+  const [apiServices, setApiServices] = useState([]);
+
+  useEffect(() => {
+    // Fetch services from API
+    const fetchServices = async () => {
+      try {
+        const res = await ApiService.getServices();
+        setApiServices(res.services || []);
+      } catch (error) {
+        setApiServices([]);
+      }
+    };
+    fetchServices();
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -179,9 +196,9 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {services.map((service, index) => (
+            {(apiServices.length > 0 ? apiServices : services).map((service, index) => (
               <motion.div
-                key={index}
+                key={service.id || index}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -191,7 +208,7 @@ const Home = () => {
               >
                 <div className="flex items-start">
                   <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary-50 dark:bg-neutral-700 flex items-center justify-center text-2xl mr-4">
-                    {service.icon}
+                    {service.icon || '💻'}
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
@@ -201,7 +218,7 @@ const Home = () => {
                       {service.description}
                     </p>
                     <Link
-                      to={service.path}
+                      to={service.link || "/contact"}
                       className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
                     >
                       Learn more

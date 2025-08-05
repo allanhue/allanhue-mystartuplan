@@ -1,10 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
+import ApiService from '../services/api';
 
 const Profile = () => {
   const { user, logOut } = UserAuth();
   const navigate = useNavigate();
+  const [profileData, setProfileData] = useState(null);
+
+  useEffect(() => {
+    // Example: Fetch additional profile data from API if needed
+    const fetchProfile = async () => {
+      if (user?.email) {
+        try {
+          // Replace with your actual API endpoint if needed
+          // const data = await ApiService.getProfile(user.email);
+          // setProfileData(data);
+          setProfileData({ email: user.email }); // fallback to basic info
+        } catch (error) {
+          setProfileData({ email: user.email });
+        }
+      }
+    };
+    fetchProfile();
+  }, [user]);
 
   const handleLogout = async () => {
     try {
@@ -16,51 +35,60 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Header */}
-      <div className="flex items-center justify-between p-4 z-[100] w-full sticky top-0 bg-black/80 backdrop-blur-sm">
-        <Link to="/">
-          <h1 className="text-red-600 text-4xl font-bold cursor-pointer">
-            StreamPrime
-          </h1>
-        </Link>
-
-        {user?.email ? (
-          <div className="flex items-center gap-4">
-            <Link to="/profile">
-              <button className="text-white hover:text-gray-300 transition">
-                My Profile
+    <div className="bg-white py-16 min-h-screen">
+      <div className="container mx-auto px-6">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-8">
+          <Link to="/">
+            <h1 className="text-4xl font-bold text-black cursor-pointer">
+              Lanstar Solutions
+            </h1>
+          </Link>
+          {user?.email ? (
+            <div className="flex items-center gap-4">
+              <Link to="/profile">
+                <button className="text-black hover:text-primary-600 transition">
+                  My Profile
+                </button>
+              </Link>
+              <button
+                onClick={handleLogout}
+                className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg cursor-pointer transition"
+              >
+                Logout
               </button>
-            </Link>
-            <button
-              onClick={handleLogout}
-              className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded cursor-pointer transition"
-            >
-              Logout
-            </button>
-          </div>
-        ) : (
-          <div className="flex items-center gap-4">
-            <Link to="/login">
-              <button className="text-white hover:text-gray-300 transition">
-                Sign In
-              </button>
-            </Link>
-            <Link to="/signup">
-              <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded cursor-pointer transition">
-                Sign Up
-              </button>
-            </Link>
-          </div>
-        )}
-      </div>
-
-      {/* Profile Content */}
-      <div className="p-8">
-        <h2 className="text-2xl font-bold">Welcome, {user?.email || 'Guest'}</h2>
-        <p className="text-gray-400 mt-4">
-          This is your profile page. You can manage your account here.
-        </p>
+            </div>
+          ) : (
+            <div className="flex items-center gap-4">
+              <Link to="/login">
+                <button className="text-black hover:text-primary-600 transition">
+                  Sign In
+                </button>
+              </Link>
+              <Link to="/auth">
+                <button className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg cursor-pointer transition">
+                  Sign Up
+                </button>
+              </Link>
+            </div>
+          )}
+        </div>
+        {/* Profile Content */}
+        <div className="bg-gray-50 border-2 border-black rounded-lg p-8">
+          <h2 className="text-2xl font-bold text-black mb-4">
+            Welcome, {profileData?.email || 'Guest'}
+          </h2>
+          <p className="text-gray-600 mb-4">
+            This is your profile page. You can manage your account here.
+          </p>
+          {/* Example: Display more profile info from API */}
+          {/* {profileData && (
+            <div className="mt-4">
+              <div className="font-semibold">Name: {profileData.name}</div>
+              <div className="font-semibold">Company: {profileData.company}</div>
+            </div>
+          )} */}
+        </div>
       </div>
     </div>
   );
