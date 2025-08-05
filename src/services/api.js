@@ -1,4 +1,4 @@
-import { backendApiUrl } from '../firebase';
+import { backendApiUrl } from '../superbaseClient';
 
 // API service for connecting to Render backend
 const API_BASE_URL = 'https://mystartuplan-back.onrender.com';
