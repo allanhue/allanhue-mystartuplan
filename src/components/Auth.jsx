@@ -278,7 +278,7 @@ const AuthComponent = () => {
                       </span>
                       {loading
                         ? (isLogin ? 'Signing in...' : 'Creating account...')
-                        : (isLogin ? 'Sign in' : 'Create account')}
+                        : (isLogin ? 'Sign in' : 'Create account')
                       }
                     </button>
                   </div>
