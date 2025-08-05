@@ -3,37 +3,10 @@ import { useState } from 'react';
 import ApiService from '../services/api';
 
 const About = () => {
-  const [apiStatus, setApiStatus] = useState('');
-  const handleTestApi = async () => {
-    setApiStatus('Testing...');
-    try {
-      const result = await ApiService.testBackendConnection();
-      setApiStatus(`Success: ${result.status} - ${result.message}`);
-    } catch (err) {
-      setApiStatus('Failed to connect to backend API');
-    }
   };
 
   return (
     <div className="bg-white py-16">
-      <div className="container mx-auto px-6">
-        {/* Add this block at the top for testing */}
-        <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
-          <button
-            onClick={handleTestApi}
-            style={{
-              padding: '10px 20px',
-              background: '#000',
-              color: '#fff',
-              borderRadius: '6px',
-              fontWeight: 'bold',
-              marginBottom: '10px'
-            }}
-          >
-            Test Backend API Connection
-          </button>
-          <div>{apiStatus}</div>
-        </div>
 
         {/* Header */}
         <div
