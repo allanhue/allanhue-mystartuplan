@@ -1,7 +1,15 @@
-import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
-const supabase = createClient(supabaseUrl, supabaseKey)
+import { createClient } from '@supabase/supabase-js';
 
-export default supabase
+// Get Supabase config from environment variables
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+// Create Supabase client
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+// Backend API URL from env (optional, fallback to hardcoded if not set)
+export const backendApiUrl = import.meta.env.VITE_API_BASE_URL || 'https://mystartuplan-back.onrender.com';
+
+export default supabase;
+export { supabaseUrl, supabaseAnonKey, backendApiUrl };
