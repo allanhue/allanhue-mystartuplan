@@ -104,10 +104,10 @@ const Profile = () => {
   };
 
   const stats = [
-    { label: 'Projects Completed', value: '24', icon: FiCheckCircle, color: 'text-green-400' },
+    { label: 'Projects Completed', value: '10', icon: FiCheckCircle, color: 'text-green-400' },
     { label: 'Client Satisfaction', value: '98%', icon: FiStar, color: 'text-yellow-400' },
-    { label: 'Years Experience', value: '5+', icon: FiTrendingUp, color: 'text-blue-400' },
-    { label: 'Technologies', value: '15+', icon: FiHeart, color: 'text-pink-400' }
+    { label: 'Years Experience', value: '2+', icon: FiTrendingUp, color: 'text-blue-400' },
+    { label: 'Technologies', value: '10+', icon: FiHeart, color: 'text-pink-400' }
   ];
 
   const recentActivities = [
@@ -132,7 +132,7 @@ const Profile = () => {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Welcome Back, {profileData.displayName}!
+            Welcome Back, {profileData.displayName}
           </h1>
           <p className="text-xl text-neutral-300 max-w-2xl mx-auto">
             Manage your profile, track your progress, and stay updated with your IT solutions journey
