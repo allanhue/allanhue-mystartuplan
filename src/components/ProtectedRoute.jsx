@@ -1,12 +1,12 @@
 import { Navigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { UserAuth } from '../context/AuthContext';
 import { motion } from 'framer-motion';
 
 const ProtectedRoute = ({ children }) => {
-  const { currentUser } = useAuth();
+  const { user } = UserAuth();
   const location = useLocation();
 
-  if (!currentUser) {
+  if (!user) {
     // Redirect them to the /auth page, but save the current location they were trying to go to
     return (
       <Navigate 

@@ -1,4 +1,4 @@
-/* Theme variables for light and dark modes */
+Theme variables for light and dark modes
 :root {
   /* Base colors */
   --color-bg-primary: #ffffff;
@@ -112,7 +112,7 @@ a {
 
 a:hover {
   color: var(--color-primary-dark);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Buttons */

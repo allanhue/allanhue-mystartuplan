@@ -18,7 +18,7 @@ const App = () => {
   const { theme } = useTheme();
 
   return (
-    <div className="min-h-screen bg-white text-black transition-colors duration-200">
+    <div className="min-h-screen bg-neutral-950 text-neutral-100 transition-colors duration-200">
       <Navbar />
       
       {/* Main Content */}

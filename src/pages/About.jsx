@@ -3,8 +3,6 @@ import { useState } from 'react';
 import ApiService from '../services/api';
 
 const About = () => {
-  };
-
   return (
     <div className="bg-white py-16">
 
@@ -188,7 +186,6 @@ const About = () => {
           </div>
         </div>
       </div>
-    </div>
   )
 }
 

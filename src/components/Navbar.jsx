@@ -45,7 +45,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center">
-              <span className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
+              <span className="text-2xl font-extrabold bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-300 bg-clip-text text-transparent tracking-tight">
                 Lanstar
               </span>
             </Link>
@@ -57,7 +57,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 to={link.path}
-                className="px-3 py-2 rounded-md text-sm font-medium text-neutral-700 hover:text-primary-600 dark:text-neutral-300 dark:hover:text-primary-400 transition-colors duration-200 no-underline"
+                className="px-3 py-2 rounded-md text-sm font-medium text-neutral-200 hover:text-white dark:text-neutral-300 dark:hover:text-white transition-colors duration-200 no-underline"
               >
                 {link.name}
               </Link>

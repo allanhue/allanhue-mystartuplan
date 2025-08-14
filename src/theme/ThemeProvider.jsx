@@ -3,7 +3,8 @@ import { applyTheme, getThemeColor, themeConfig } from './theme-utils';
 
 // Theme context
 export const ThemeContext = createContext({
-  theme: 'dark', // Default to dark theme
+
+  theme: 'dark', 
   toggleTheme: () => {},
   isDarkMode: true,
   colors: themeConfig.colors.dark,

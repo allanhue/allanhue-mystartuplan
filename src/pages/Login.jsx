@@ -40,49 +40,49 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-white py-16 min-h-screen">
+    <div className="min-h-screen gradient-futuristic py-16">
       <div className="container mx-auto px-6">
-        <div className="max-w-md mx-auto bg-gray-50 border-2 border-black rounded-lg p-8">
-          <h2 className="text-3xl font-bold mb-6 text-black text-center">
-            Sign in to your account
+        <div className="max-w-md mx-auto glass-panel p-8 animate-fade-in-up">
+          <h2 className="text-3xl font-extrabold mb-6 text-white text-center tracking-tight">
+            Welcome back
           </h2>
-          {error && <p className="text-red-500 mb-4">{error}</p>}
+          {error && <p className="text-error-400 mb-4 text-sm text-center">{error}</p>}
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium leading-6 text-black">
+            <div className="space-y-2">
+              <label htmlFor="email" className="block text-sm font-medium leading-6 text-white/80">
                 Email address
               </label>
-              <div className="mt-2">
+              <div className="relative">
                 <input
                   id="email"
                   name="email"
                   type="email"
                   required
                   onChange={(e) => setEmail(e.target.value)}
-                  className="block w-full rounded-md bg-gray-200 px-3 py-1.5 text-black shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:border-cyan-400/60 transition"
                 />
               </div>
             </div>
 
-            <div>
+            <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-black">
+                <label htmlFor="password" className="block text-sm font-medium leading-6 text-white/80">
                   Password
                 </label>
               </div>
-              <div className="relative mt-2">
+              <div className="relative">
                 <input
                   id="password"
                   name="password"
-                  type={showPassword ? "text" : "password"}
+                  type={showPassword ? 'text' : 'password'}
                   required
                   onChange={(e) => setPassword(e.target.value)}
-                  className="block w-full rounded-md bg-gray-200 px-3 py-1.5 text-black shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-purple-400/60 transition"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50 hover:text-white/80"
                 >
                   {showPassword ? '👁️' : '👁️‍🗨️'}
                 </button>
@@ -92,7 +92,7 @@ const Login = () => {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="btn btn-glow w-full justify-center rounded-xl bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-400 px-4 py-3 text-sm font-semibold leading-6 text-white shadow-sm hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
               >
                 Sign in
               </button>
