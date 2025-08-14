@@ -72,10 +72,10 @@ const services = [
     path: '/services/data-recovery',
   },
   {
-    name: 'Cybersecurity',
+    name: 'LightWeight IT',
     description: 'Protect your systems from threats with our security solutions.',
     icon: '🔒',
-    path: '/services/cybersecurity',
+    path: '/services/lightweight-it',
   },
 ];
 
@@ -102,6 +102,8 @@ const Home = () => {
         className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden"
         style={{
           background: "url('/WhatsApp Image 2025-08-05 at 12.26.03_6915dcc9.jpg') center/cover no-repeat",
+          backgroundColor: "black",
+          opacity: 0.5
         }}
       >
         <div className="absolute inset-0 bg-white bg-opacity-80"></div>
@@ -112,22 +114,34 @@ const Home = () => {
             variants={containerVariants}
             className="max-w-4xl mx-auto text-center"
           >
-            <motion.h1 
-              variants={itemVariants}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 dark:text-white mb-6 leading-tight"
-            >
-              Professional IT Solutions for{' '}
-              <span className="bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
-                Your Business
-              </span>
-            </motion.h1>
+                         <motion.h1 
+               variants={itemVariants}
+               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+               style={{
+                 textShadow: "3px 3px 6px rgba(0,0,0,0.9)",
+                 WebkitTextStroke: "1px rgba(0,0,0,0.5)"
+               }}
+             >
+               Professional IT Solutions for{' '}
+               <span className="text-white font-extrabold" style={{
+                 fontSize: "4rem",
+                 textShadow: "4px 4px 8px rgba(0,0,0,0.9)",
+                 WebkitTextStroke: "2px rgba(0,0,0,0.6)"
+               }}>
+                 Your Business
+               </span>
+             </motion.h1>
             
-            <motion.p 
-              variants={itemVariants}
-              className="text-lg md:text-xl text-neutral-700 dark:text-neutral-300 mb-10 max-w-2xl mx-auto"
-            >
-              We provide comprehensive IT services and support to help your business thrive in the digital world.
-            </motion.p>
+                         <motion.p 
+               variants={itemVariants}
+               className="text-lg md:text-xl text-white mb-10 max-w-2xl mx-auto font-semibold"
+               style={{
+                 textShadow: "2px 2px 4px rgba(0,0,0,0.9)",
+                 WebkitTextStroke: "0.5px rgba(0,0,0,0.4)"
+               }}
+             >
+               We provide comprehensive IT services and support to help your business thrive in the digital world.
+             </motion.p>
             
             <motion.div 
               variants={itemVariants}
@@ -222,7 +236,7 @@ const Home = () => {
                       {service.description}
                     </p>
                     <Link
-                      to={service.link || "/contact"}
+                      to={service.path || "/contact"}
                       className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
                     >
                       Learn more

@@ -55,16 +55,25 @@ const Contact = () => {
 
   return (
     <div
-      className="bg-white py-16"
+      className="relative py-16"
       style={{
         background: "url('/WhatsApp Image 2025-08-05 at 12.26.04_1599cfbc.jpg') center/cover no-repeat",
       }}
     >
+      {/* Dark overlay for better text visibility */}
+      <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+      <div className="relative z-10">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold mb-6 text-black">Get In Touch</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h1 className="text-5xl font-bold mb-6 text-white" style={{
+            textShadow: "3px 3px 6px rgba(0,0,0,0.9)",
+            WebkitTextStroke: "1px rgba(0,0,0,0.5)"
+          }}>Get In Touch</h1>
+          <p className="text-xl text-white max-w-3xl mx-auto font-semibold" style={{
+            textShadow: "2px 2px 4px rgba(0,0,0,0.9)",
+            WebkitTextStroke: "0.5px rgba(0,0,0,0.4)"
+          }}>
             Ready to transform your business with cutting-edge technology solutions? 
             Let's discuss your project and how we can help you achieve your goals.
           </p>
@@ -259,6 +268,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   )

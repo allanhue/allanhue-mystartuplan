@@ -88,7 +88,7 @@ export default function Navbar() {
               </div>
             ) : (
               <Link
-                to="/login"
+                to="/auth"
                 className="flex items-center space-x-2 text-sm font-medium text-neutral-700 hover:text-primary-600 dark:text-neutral-300 dark:hover:text-primary-400 transition-colors duration-200 no-underline"
               >
                 <FiLogIn className="w-5 h-5" />
@@ -155,7 +155,7 @@ export default function Navbar() {
             </>
           ) : (
             <Link
-              to="/login"
+              to="/auth"
               className="block px-3 py-2 rounded-md text-base font-medium text-primary-600 hover:bg-primary-50 dark:text-primary-400 dark:hover:bg-neutral-800 transition-colors duration-200 no-underline"
               onClick={() => setMenuOpen(false)}
             >

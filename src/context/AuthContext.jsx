@@ -1,8 +1,13 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = 'https://itsxxuhjfmizksjeuuot.supabase.co';
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseKey) {
+  throw new Error('Supabase configuration is missing. Please check your environment variables.');
+}
+
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const AuthContext = createContext();

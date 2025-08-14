@@ -77,7 +77,7 @@ class ApiService {
 
   // Submit newsletter subscription
   async subscribeNewsletter(email) {
-    return this.apiCall('/api/lanstartup/newsletter', {
+    return this.apiCall('/api/lanstartup/newsletter/subscribe', {
       method: 'POST',
       body: JSON.stringify({ email }),
     });
@@ -95,9 +95,8 @@ class ApiService {
 
   // Analytics tracking
   async trackEvent(eventData) {
-    return this.apiCall('/api/lanstartup/analytics', {
-      method: 'POST',
-      body: JSON.stringify(eventData),
+    return this.apiCall('/api/lanstartup/analytics/dashboard', {
+      method: 'GET',
     });
   }
 

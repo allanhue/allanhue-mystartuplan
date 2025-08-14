@@ -3,8 +3,6 @@ import { useHistory } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { 
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
