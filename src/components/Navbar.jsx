@@ -159,7 +159,7 @@ export default function Navbar() {
               className="block px-3 py-2 rounded-md text-base font-medium text-primary-600 hover:bg-primary-50 dark:text-primary-400 dark:hover:bg-neutral-800 transition-colors duration-200 no-underline"
               onClick={() => setMenuOpen(false)}
             >
-              Login / Register
+              Sign Up
             </Link>
           )}
         </div>
