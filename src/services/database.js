@@ -2,7 +2,7 @@
 // This would typically be in your backend, but here's the structure
 
 const DATABASE_CONFIG = {
-  connectionString: process.env.VITE_DATABASE_URL || 'postgresql://neondb_owner:npg_dqgGyi49SCMm@ep-solitary-mountain-a8emgw3p-pooler.eastus2.azure.neon.tech/mldatabase?sslmode=require&channel_binding=require',
+  connectionString: process.env.VITE_DATABASE_URL || 'postgresql://neondb_owner:npg_dqgGyi49SCMm@ep-solitary-mountain-a8emgw3p-pooler.eastus2.azure.neon.tech/neondb?sslmode=require&channel_binding=require',
   ssl: {
     rejectUnauthorized: false
   }
