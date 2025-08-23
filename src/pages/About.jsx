@@ -47,7 +47,7 @@ const About = () => {
 
         {/* Founder Section */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-12 text-black">Meet the Founder</h2>
+          <h2 className="text-4xl font-bold mb-12 text-black"> The Founder</h2>
           <div className="max-w-4xl mx-auto">
             <div className="bg-white border-2 border-black rounded-lg p-8">
               <div className="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl">
@@ -55,7 +55,7 @@ const About = () => {
               </div>
               <h3 className="text-2xl font-bold mb-4 text-black">Allan Mwangi</h3>
               <p className="text-lg text-gray-600 mb-6">
-                Full-Stack Developer & Business Automation Specialist
+                Software Engineer & Business Automation Specialist
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
                 With extensive experience in data science, software development, and business process automation, 
