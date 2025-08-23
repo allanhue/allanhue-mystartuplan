@@ -17,7 +17,14 @@ import {
   FiBell,
   FiHeart,
   FiStar,
-  FiTrendingUp
+  FiTrendingUp,
+  FiCamera,
+  FiLock,
+  FiEye,
+  FiEyeOff,
+  FiUpload,
+  FiCheck,
+  FiXCircle
 } from 'react-icons/fi';
 
 const Profile = () => {
@@ -25,31 +32,108 @@ const Profile = () => {
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
   const [profileData, setProfileData] = useState({
-    displayName: user?.user_metadata?.full_name || user?.email?.split('@')[0] || 'User',
-    email: user?.email || '',
-    phone: user?.user_metadata?.phone || '+254 731 430 273',
-    company: user?.user_metadata?.company || 'Lanstar Solutions',
-    role: user?.user_metadata?.role || 'IT Professional',
-    bio: user?.user_metadata?.bio || 'Passionate about delivering cutting-edge technology solutions to transform businesses.',
-    location: user?.user_metadata?.location || 'Nairobi, Kenya',
-    joinDate: user?.created_at ? new Date(user.created_at).getFullYear().toString() : '2024'
+    displayName: '',
+    email: '',
+    phone: '',
+    company: '',
+    role: '',
+    bio: '',
+    location: '',
+    joinDate: '',
+    avatarUrl: ''
   });
   const [tempData, setTempData] = useState({});
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [passwordData, setPasswordData] = useState({
+    currentPassword: '',
+    newPassword: '',
+    confirmPassword: ''
+  });
+  const [showPasswordForm, setShowPasswordForm] = useState(false);
+  const [showPassword, setShowPassword] = useState({
+    current: false,
+    new: false,
+    confirm: false
+  });
+  const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState('');
+  const [emailVerified, setEmailVerified] = useState(false);
 
   useEffect(() => {
     if (!user) {
       navigate('/auth');
+      return;
     }
+
+    // Initialize profile data
+    setProfileData({
+      displayName: user?.user_metadata?.full_name || user?.email?.split('@')[0] || 'User',
+      email: user?.email || '',
+      phone: user?.user_metadata?.phone || '+254 731 430 273',
+      company: user?.user_metadata?.company || 'Lanstar Solutions',
+      role: user?.user_metadata?.role || 'IT Professional',
+      bio: user?.user_metadata?.bio || 'Passionate about delivering cutting-edge technology solutions to transform businesses.',
+      location: user?.user_metadata?.location || 'Nairobi, Kenya',
+      joinDate: user?.created_at ? new Date(user.created_at).getFullYear().toString() : '2024',
+      avatarUrl: user?.user_metadata?.avatar_url || ''
+    });
+
+    // Check if email is verified
+    setEmailVerified(user?.email_confirmed_at || user?.email === user?.email_confirmed_at);
   }, [user, navigate]);
+
+  const validateForm = (data) => {
+    const newErrors = {};
+    
+    if (!data.displayName || data.displayName.trim().length < 2) {
+      newErrors.displayName = 'Name must be at least 2 characters';
+    }
+    
+    if (data.phone && !/^\+?[\d\s\-\(\)]{10,}$/.test(data.phone)) {
+      newErrors.phone = 'Please enter a valid phone number';
+    }
+    
+    if (data.bio && data.bio.length > 500) {
+      newErrors.bio = 'Bio cannot exceed 500 characters';
+    }
+    
+    return newErrors;
+  };
+
+  const validatePasswordForm = (data) => {
+    const newErrors = {};
+    
+    if (!data.currentPassword) {
+      newErrors.currentPassword = 'Current password is required';
+    }
+    
+    if (!data.newPassword || data.newPassword.length < 6) {
+      newErrors.newPassword = 'New password must be at least 6 characters';
+    }
+    
+    if (data.newPassword !== data.confirmPassword) {
+      newErrors.confirmPassword = 'Passwords do not match';
+    }
+    
+    return newErrors;
+  };
 
   const handleEdit = () => {
     setTempData({ ...profileData });
     setIsEditing(true);
+    setErrors({});
+    setSuccessMessage('');
   };
 
   const handleSave = async () => {
+    const formErrors = validateForm(tempData);
+    if (Object.keys(formErrors).length > 0) {
+      setErrors(formErrors);
+      return;
+    }
+
     setSaving(true);
     try {
       // Update user metadata in Supabase
@@ -60,7 +144,8 @@ const Profile = () => {
           role: tempData.role,
           bio: tempData.bio,
           location: tempData.location,
-          phone: tempData.phone
+          phone: tempData.phone,
+          avatar_url: tempData.avatarUrl
         }
       });
 
@@ -71,12 +156,14 @@ const Profile = () => {
 
       setProfileData({ ...tempData });
       setIsEditing(false);
+      setErrors({});
+      setSuccessMessage('Profile updated successfully!');
       
-      // Show success message
-      alert('Profile updated successfully!');
+      // Clear success message after 3 seconds
+      setTimeout(() => setSuccessMessage(''), 3000);
     } catch (error) {
       console.error('Failed to update profile:', error);
-      alert('Failed to update profile. Please try again.');
+      setErrors({ submit: 'Failed to update profile. Please try again.' });
     } finally {
       setSaving(false);
     }
@@ -85,6 +172,8 @@ const Profile = () => {
   const handleCancel = () => {
     setIsEditing(false);
     setTempData({});
+    setErrors({});
+    setSuccessMessage('');
   };
 
   const handleInputChange = (e) => {
@@ -92,6 +181,125 @@ const Profile = () => {
       ...tempData,
       [e.target.name]: e.target.value
     });
+    
+    // Clear error for this field when user starts typing
+    if (errors[e.target.name]) {
+      setErrors({
+        ...errors,
+        [e.target.name]: ''
+      });
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    setPasswordData({
+      ...passwordData,
+      [e.target.name]: e.target.value
+    });
+    
+    // Clear error for this field when user starts typing
+    if (errors[e.target.name]) {
+      setErrors({
+        ...errors,
+        [e.target.name]: ''
+      });
+    }
+  };
+
+  const handlePasswordUpdate = async () => {
+    const formErrors = validatePasswordForm(passwordData);
+    if (Object.keys(formErrors).length > 0) {
+      setErrors(formErrors);
+      return;
+    }
+
+    try {
+      const { error } = await supabase.auth.updateUser({
+        password: passwordData.newPassword
+      });
+
+      if (error) {
+        console.error('Error updating password:', error);
+        throw error;
+      }
+
+      setShowPasswordForm(false);
+      setPasswordData({
+        currentPassword: '',
+        newPassword: '',
+        confirmPassword: ''
+      });
+      setErrors({});
+      setSuccessMessage('Password updated successfully!');
+      
+      // Clear success message after 3 seconds
+      setTimeout(() => setSuccessMessage(''), 3000);
+    } catch (error) {
+      console.error('Failed to update password:', error);
+      setErrors({ submit: 'Failed to update password. Please try again.' });
+    }
+  };
+
+  const handleImageUpload = async (e) => {
+    try {
+      setUploading(true);
+      
+      if (!e.target.files || e.target.files.length === 0) {
+        throw new Error('You must select an image to upload.');
+      }
+
+      const file = e.target.files[0];
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${Math.random()}.${fileExt}`;
+      const filePath = `${user.id}/${fileName}`;
+
+      // Upload image to Supabase Storage
+      const { error: uploadError } = await supabase.storage
+        .from('avatars')
+        .upload(filePath, file);
+
+      if (uploadError) {
+        throw uploadError;
+      }
+
+      // Get public URL
+      const { data: { publicUrl } } = supabase.storage
+        .from('avatars')
+        .getPublicUrl(filePath);
+
+      // Update profile with new avatar URL
+      setTempData({
+        ...tempData,
+        avatarUrl: publicUrl
+      });
+      
+      setSuccessMessage('Image uploaded successfully!');
+      setTimeout(() => setSuccessMessage(''), 3000);
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      setErrors({ submit: error.message });
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const handleResendVerification = async () => {
+    try {
+      const { error } = await supabase.auth.resend({
+        type: 'signup',
+        email: user.email,
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      setSuccessMessage('Verification email sent! Please check your inbox.');
+      setTimeout(() => setSuccessMessage(''), 5000);
+    } catch (error) {
+      console.error('Error sending verification email:', error);
+      setErrors({ submit: 'Failed to send verification email. Please try again.' });
+    }
   };
 
   const handleLogout = async () => {
@@ -124,6 +332,40 @@ const Profile = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
+        {/* Success Message */}
+        <AnimatePresence>
+          {successMessage && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="fixed top-4 right-4 z-50"
+            >
+              <div className="bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center space-x-2">
+                <FiCheck className="w-5 h-5" />
+                <span>{successMessage}</span>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Error Message */}
+        <AnimatePresence>
+          {errors.submit && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="fixed top-4 right-4 z-50"
+            >
+              <div className="bg-red-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center space-x-2">
+                <FiXCircle className="w-5 h-5" />
+                <span>{errors.submit}</span>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -150,12 +392,49 @@ const Profile = () => {
             <div className="glass-panel p-6 rounded-2xl">
               {/* Profile Header */}
               <div className="text-center mb-6">
-                <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-cyan-500 via-purple-500 to-cyan-400 rounded-full flex items-center justify-center">
-                  <FiUser className="w-12 h-12 text-white" />
+                <div className="relative w-24 h-24 mx-auto mb-4">
+                  <div className="w-24 h-24 bg-gradient-to-br from-cyan-500 via-purple-500 to-cyan-400 rounded-full flex items-center justify-center overflow-hidden">
+                    {tempData.avatarUrl || profileData.avatarUrl ? (
+                      <img 
+                        src={isEditing ? tempData.avatarUrl : profileData.avatarUrl} 
+                        alt="Profile" 
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <FiUser className="w-12 h-12 text-white" />
+                    )}
+                  </div>
+                  
+                  {isEditing && (
+                    <label className="absolute bottom-0 right-0 bg-cyan-500 hover:bg-cyan-600 text-white p-2 rounded-full cursor-pointer transition-colors">
+                      <FiCamera className="w-4 h-4" />
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        className="hidden"
+                        disabled={uploading}
+                      />
+                    </label>
+                  )}
                 </div>
+                
                 <h2 className="text-2xl font-bold text-white mb-2">{profileData.displayName}</h2>
                 <p className="text-neutral-300">{profileData.role}</p>
                 <p className="text-sm text-neutral-400">{profileData.company}</p>
+                
+                {/* Email Verification Status */}
+                {!emailVerified && (
+                  <div className="mt-3 p-2 bg-yellow-900/30 border border-yellow-700 rounded-lg text-sm">
+                    <p className="text-yellow-400 mb-1">Email not verified</p>
+                    <button 
+                      onClick={handleResendVerification}
+                      className="text-cyan-400 hover:text-cyan-300 text-xs"
+                    >
+                      Resend verification email
+                    </button>
+                  </div>
+                )}
               </div>
 
               {/* Profile Info */}
@@ -169,30 +448,49 @@ const Profile = () => {
                   <span className="text-sm">Member since {profileData.joinDate}</span>
                 </div>
                 <div className="flex items-center space-x-3 text-neutral-300">
-                  <FiShield className="w-5 h-5 text-green-400" />
-                  <span className="text-sm">Verified Account</span>
+                  <FiShield className={`w-5 h-5 ${emailVerified ? 'text-green-400' : 'text-yellow-400'}`} />
+                  <span className="text-sm">{emailVerified ? 'Verified Account' : 'Unverified Account'}</span>
                 </div>
               </div>
 
               {/* Action Buttons */}
               <div className="space-y-3">
                 {!isEditing ? (
-                  <button
-                    onClick={handleEdit}
-                    className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white py-2 px-4 rounded-lg font-medium transition-all duration-300 flex items-center justify-center space-x-2"
-                  >
-                    <FiEdit3 className="w-4 h-4" />
-                    <span>Edit Profile</span>
-                  </button>
+                  <>
+                    <button
+                      onClick={handleEdit}
+                      className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white py-2 px-4 rounded-lg font-medium transition-all duration-300 flex items-center justify-center space-x-2"
+                    >
+                      <FiEdit3 className="w-4 h-4" />
+                      <span>Edit Profile</span>
+                    </button>
+                    
+                    <button
+                      onClick={() => setShowPasswordForm(true)}
+                      className="w-full bg-neutral-700 hover:bg-neutral-600 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center space-x-2"
+                    >
+                      <FiLock className="w-4 h-4" />
+                      <span>Change Password</span>
+                    </button>
+                  </>
                 ) : (
                   <div className="space-y-2">
                     <button
                       onClick={handleSave}
-                      disabled={saving}
+                      disabled={saving || uploading}
                       className="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center space-x-2 disabled:opacity-50"
                     >
-                      <FiSave className="w-4 h-4" />
-                      <span>{saving ? 'Saving...' : 'Save Changes'}</span>
+                      {uploading ? (
+                        <>
+                          <FiUpload className="w-4 h-4 animate-pulse" />
+                          <span>Uploading...</span>
+                        </>
+                      ) : (
+                        <>
+                          <FiSave className="w-4 h-4" />
+                          <span>{saving ? 'Saving...' : 'Save Changes'}</span>
+                        </>
+                      )}
                     </button>
                     <button
                       onClick={handleCancel}
@@ -251,7 +549,7 @@ const Profile = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-neutral-300 mb-2">
-                    Display Name
+                    Display Name *
                   </label>
                   <input
                     type="text"
@@ -261,6 +559,9 @@ const Profile = () => {
                     disabled={!isEditing}
                     className="w-full px-4 py-3 bg-neutral-800 border border-neutral-600 rounded-lg text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent disabled:opacity-50"
                   />
+                  {errors.displayName && (
+                    <p className="mt-1 text-sm text-red-400">{errors.displayName}</p>
+                  )}
                 </div>
 
                 <div>
@@ -275,6 +576,9 @@ const Profile = () => {
                     disabled={!isEditing}
                     className="w-full px-4 py-3 bg-neutral-800 border border-neutral-600 rounded-lg text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent disabled:opacity-50"
                   />
+                  {errors.phone && (
+                    <p className="mt-1 text-sm text-red-400">{errors.phone}</p>
+                  )}
                 </div>
 
                 <div>
@@ -307,7 +611,7 @@ const Profile = () => {
 
                 <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-neutral-300 mb-2">
-                    Bio
+                    Bio {isEditing && <span className="text-neutral-500 text-xs">({(tempData.bio || '').length}/500)</span>}
                   </label>
                   <textarea
                     name="bio"
@@ -317,6 +621,9 @@ const Profile = () => {
                     disabled={!isEditing}
                     className="w-full px-4 py-3 bg-neutral-800 border border-neutral-600 rounded-lg text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent disabled:opacity-50 resize-none"
                   />
+                  {errors.bio && (
+                    <p className="mt-1 text-sm text-red-400">{errors.bio}</p>
+                  )}
                 </div>
               </div>
             </div>
@@ -379,6 +686,127 @@ const Profile = () => {
                 </button>
                 <button
                   onClick={() => setShowLogoutModal(false)}
+                  className="flex-1 bg-neutral-600 hover:bg-neutral-700 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200"
+                >
+                  Cancel
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Password Change Modal */}
+      <AnimatePresence>
+        {showPasswordForm && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="glass-panel p-6 rounded-2xl max-w-md w-full"
+            >
+              <h3 className="text-xl font-semibold text-white mb-4">Change Password</h3>
+              
+              <div className="space-y-4 mb-6">
+                <div>
+                  <label className="block text-sm font-medium text-neutral-300 mb-2">
+                    Current Password
+                  </label>
+                  <div className="relative">
+                    <input
+                      type={showPassword.current ? "text" : "password"}
+                      name="currentPassword"
+                      value={passwordData.currentPassword}
+                      onChange={handlePasswordChange}
+                      className="w-full px-4 py-3 bg-neutral-800 border border-neutral-600 rounded-lg text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword({ ...showPassword, current: !showPassword.current })}
+                      className="absolute right-3 top-3 text-neutral-400 hover:text-neutral-200"
+                    >
+                      {showPassword.current ? <FiEyeOff className="w-5 h-5" /> : <FiEye className="w-5 h-5" />}
+                    </button>
+                  </div>
+                  {errors.currentPassword && (
+                    <p className="mt-1 text-sm text-red-400">{errors.currentPassword}</p>
+                  )}
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-neutral-300 mb-2">
+                    New Password
+                  </label>
+                  <div className="relative">
+                    <input
+                      type={showPassword.new ? "text" : "password"}
+                      name="newPassword"
+                      value={passwordData.newPassword}
+                      onChange={handlePasswordChange}
+                      className="w-full px-4 py-3 bg-neutral-800 border border-neutral-600 rounded-lg text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword({ ...showPassword, new: !showPassword.new })}
+                      className="absolute right-3 top-3 text-neutral-400 hover:text-neutral-200"
+                    >
+                      {showPassword.new ? <FiEyeOff className="w-5 h-5" /> : <FiEye className="w-5 h-5" />}
+                    </button>
+                  </div>
+                  {errors.newPassword && (
+                    <p className="mt-1 text-sm text-red-400">{errors.newPassword}</p>
+                  )}
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-neutral-300 mb-2">
+                    Confirm New Password
+                  </label>
+                  <div className="relative">
+                    <input
+                      type={showPassword.confirm ? "text" : "password"}
+                      name="confirmPassword"
+                      value={passwordData.confirmPassword}
+                      onChange={handlePasswordChange}
+                      className="w-full px-4 py-3 bg-neutral-800 border border-neutral-600 rounded-lg text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword({ ...showPassword, confirm: !showPassword.confirm })}
+                      className="absolute right-3 top-3 text-neutral-400 hover:text-neutral-200"
+                    >
+                      {showPassword.confirm ? <FiEyeOff className="w-5 h-5" /> : <FiEye className="w-5 h-5" />}
+                    </button>
+                  </div>
+                  {errors.confirmPassword && (
+                    <p className="mt-1 text-sm text-red-400">{errors.confirmPassword}</p>
+                  )}
+                </div>
+              </div>
+              
+              <div className="flex space-x-3">
+                <button
+                  onClick={handlePasswordUpdate}
+                  className="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200"
+                >
+                  Update Password
+                </button>
+                <button
+                  onClick={() => {
+                    setShowPasswordForm(false);
+                    setPasswordData({
+                      currentPassword: '',
+                      newPassword: '',
+                      confirmPassword: ''
+                    });
+                    setErrors({});
+                  }}
                   className="flex-1 bg-neutral-600 hover:bg-neutral-700 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200"
                 >
                   Cancel
