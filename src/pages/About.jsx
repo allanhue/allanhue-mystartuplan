@@ -59,7 +59,7 @@ const About = () => {
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
                 With extensive experience in data science, software development, and business process automation, 
-                Allan founded TechSolutions Pro to help businesses leverage technology for growth and efficiency. 
+                Allan founded Lanstar Solutions to help businesses leverage technology for growth and efficiency. 
                 His expertise spans across multiple domains including machine learning, web development, 
                 and enterprise system implementation.
               </p>
@@ -117,7 +117,7 @@ const About = () => {
 
         {/* Why Choose Us */}
         <div className="bg-gray-50 rounded-lg p-12 mb-16">
-          <h2 className="text-4xl font-bold text-center mb-12 text-black">Why Choose TechSolutions Pro?</h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-black">Why Choose Lanstar Solutions?</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-2xl font-bold mb-4 text-black">Expertise Across Domains</h3>
