@@ -28,7 +28,7 @@ class ApiService {
       const response = await fetch(url, config);
       
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`HTTP error status: ${response.status}`);
       }
       
       return await response.json();
@@ -52,7 +52,7 @@ class ApiService {
       }, token);
     } catch (error) {
       throw new Error(
-        "Sorry, there was an error sending your message. Please try again or email us directly at allanmwangi329@gmail.com"
+        "Sorry, there was an error sending your message. Please try again or email us directly at centralhype9@gmail.com"
       );
     }
   }
