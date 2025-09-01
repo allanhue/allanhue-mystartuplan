@@ -154,12 +154,7 @@ const Home = () => {
                 Our Services
                 <FiArrowRight className="ml-2 h-5 w-5" />
               </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-primary-700 bg-white hover:bg-neutral-50 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-              >
-                Get a Free Quote
-              </Link>
+          
             </motion.div>
           </motion.div>
         </div>

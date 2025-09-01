@@ -27,6 +27,8 @@ const App = () => {
       <main className="min-h-[calc(100vh-64px)]">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
+             <Route path="/auth" element={<Auth />} />
+
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
             <Route path="/data-science" element={<DataScience />} />
@@ -34,7 +36,6 @@ const App = () => {
             <Route path="/zoho-odoo" element={<ZohoOdoo />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/auth" element={<Auth />} />
             
             {/* Protected Profile Route */}
             <Route 
