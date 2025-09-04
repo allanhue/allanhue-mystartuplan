@@ -13,6 +13,7 @@ import Profile from './pages/Profile';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import WhatsappWidget from './components/whatsapp';
+import Payment from './pages/payment';
 import './App.css';
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
             <Route path="/zoho-odoo" element={<ZohoOdoo />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/payment" element={<Payment />} />
             
             {/* Protected Profile Route */}
             <Route 

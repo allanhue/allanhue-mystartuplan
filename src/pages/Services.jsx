@@ -57,10 +57,10 @@ const Services = () => {
                     : null}
                 </ul>
                 <Link
-                  to={service.link || "/contact"}
+                  to={`/payment?service=${encodeURIComponent(service.name)}&amount=${encodeURIComponent(service.price || 99.99)}`}
                   className="block w-full bg-black text-white text-center py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
                 >
-                  Learn More
+                  Learn More / Purchase
                 </Link>
               </div>
             ))
@@ -94,7 +94,7 @@ const Services = () => {
                   </li>
                 </ul>
                 <Link 
-                  to="/data-science" 
+                  to={`/payment?service=${encodeURIComponent('Data Science & Analytics')}&amount=${encodeURIComponent(199.99)}`} 
                   className="block w-full bg-black text-white text-center py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
                 >
                   Learn More
@@ -128,7 +128,7 @@ const Services = () => {
                   </li>
                 </ul>
                 <Link 
-                  to="/software-development" 
+                  to={`/payment?service=${encodeURIComponent('Software Development')}&amount=${encodeURIComponent(199.99)}`} 
                   className="block w-full bg-black text-white text-center py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
                 >
                   Learn More
@@ -162,7 +162,7 @@ const Services = () => {
                   </li>
                 </ul>
                 <Link 
-                  to="/zoho-odoo" 
+                  to={`/payment?service=${encodeURIComponent('Zoho & Odoo Implementation')}&amount=${encodeURIComponent(199.99)}`} 
                   className="block w-full bg-black text-white text-center py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
                 >
                   Learn More
@@ -196,7 +196,7 @@ const Services = () => {
                   </li>
                 </ul>
                 <Link 
-                  to="/it-management" 
+                  to={`/payment?service=${encodeURIComponent('IT Management & Infrastructure')}&amount=${encodeURIComponent(199.99)}`} 
                   className="block w-full bg-black text-white text-center py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
                 >
                   Learn More
