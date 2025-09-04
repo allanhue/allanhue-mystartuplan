@@ -177,12 +177,12 @@ const About = () => {
             >
               Get In Touch
             </Link>
-            <Link 
+            {/* <Link 
               to="/services" 
               className="border-2 border-black text-black px-8 py-4 rounded-lg font-semibold hover:bg-black hover:text-white transition-colors inline-block text-lg"
             >
               View Our Services
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
