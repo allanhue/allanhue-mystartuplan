@@ -31,7 +31,7 @@ const Contact = () => {
       // Show success message
       setSubmitStatus({
         success: true,
-        message: 'Thank you for your message! We\'ll get back to you soon.'
+        message: ' Thank you my team will get back to you shortly.'
       })
       
       // Reset form
@@ -46,7 +46,7 @@ const Contact = () => {
       console.error('Error submitting form:', error)
       setSubmitStatus({
         success: false,
-        message: "Sorry, there was an error sending your message. Please try again or email us directly at allanmwangi329@gmail.com"
+        message: "Sorry, there was an error sending your message. Please try again or email us directly at centralhype9@gmail.com"
       })
     } finally {
       setIsSubmitting(false)

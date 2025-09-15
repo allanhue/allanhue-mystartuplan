@@ -6,8 +6,8 @@ const WhatsappWidget = () => {
   const [message, setMessage] = useState('');
   
   const phoneNumber = '+254731430273';
-  const defaultMessage = 'Hello Allan I would like to discuss IT solutions for my business.';
-  
+  const defaultMessage = 'Hello Allan, I would like to discuss IT solutions for my business.';
+
   const handleWhatsAppClick = () => {
     const encodedMessage = encodeURIComponent(message || defaultMessage);
     const whatsappUrl = `https://wa.me/${phoneNumber.replace('+', '')}?text=${encodedMessage}`;
@@ -58,7 +58,7 @@ const WhatsappWidget = () => {
           <div className="p-4 bg-gray-50">
             <div className="mb-4">
               <p className="text-sm text-gray-600 mb-2">
-                Send us a message on WhatsApp and we'll get back to you right away!
+                Send us a message on WhatsApp and we'll get back to you right away
               </p>
               <div className="bg-white p-3 rounded-lg border border-gray-200">
                 <textarea
