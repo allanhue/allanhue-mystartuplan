@@ -1,11 +1,9 @@
+import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { useTheme } from './theme/ThemeProvider';
 import Home from './pages/Home';
 import Services from './pages/Services';
-import DataScience from './pages/DataScience';
-import SoftwareDev from './pages/SoftwareDev';
-import ZohoOdoo from './pages/ZohoOdoo';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Auth from './components/Auth';
@@ -16,64 +14,100 @@ import WhatsappWidget from './components/whatsapp';
 import Payment from './pages/payment';
 import './App.css';
 
+// Error boundary component
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error('Error caught by boundary:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-screen bg-red-50 flex items-center justify-center p-4">
+          <div className="bg-white p-8 rounded-lg shadow-lg max-w-md">
+            <h1 className="text-2xl font-bold text-red-600 mb-4">Something went wrong</h1>
+            <p className="text-gray-700 mb-4">{this.state.error?.message}</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+            >
+              Reload Page
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
 const App = () => {
   const location = useLocation();
   const { theme } = useTheme();
 
+  console.log('App rendered, theme:', theme); // debug log
+
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100 transition-colors duration-200">
-      <Navbar />
-      
-      {/* Main Content */}
-      <main className="min-h-[calc(100vh-64px)]">
-        <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-             <Route path="/auth" element={<Auth />} />
+    <ErrorBoundary>
+      <div className="min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 transition-colors duration-200">
+        <Navbar />
+        
+        {/* Main Content */}
+        <main className="min-h-[calc(100vh-64px)]">
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/payment" element={<Payment />} />
+              
+              {/* Protected Profile Route */}
+              <Route 
+                path="/profile" 
+                element={
+                  <ProtectedRoute>
+                    <Profile />
+                  </ProtectedRoute>
+                } 
+              />
+              
+              {/* 404 Page */}
+              <Route path="*" element={
+                <div className="container mx-auto px-4 py-16 text-center">
+                  <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">404 - Page Not Found</h1>
+                  <p className="text-gray-600 dark:text-gray-300">The page you're looking for doesn't exist or has been moved.</p>
+                </div>
+              } />
+            </Routes>
+          </AnimatePresence>
+        </main>
 
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/data-science" element={<DataScience />} />
-            <Route path="/software-development" element={<SoftwareDev />} />
-            <Route path="/zoho-odoo" element={<ZohoOdoo />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/payment" element={<Payment />} />
-            
-            {/* Protected Profile Route */}
-            <Route 
-              path="/profile" 
-              element={
-                <ProtectedRoute>
-                  <Profile />
-                </ProtectedRoute>
-              } 
-            />
-            
-            {/* 404 Page */}
-            <Route path="*" element={
-              <div className="container mx-auto px-4 py-16 text-center">
-                <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">404 - Page Not Found</h1>
-                <p className="text-gray-600 dark:text-gray-300">The page you're looking for doesn't exist or has been moved.</p>
+        {/* WhatsApp Widget */}
+        <WhatsappWidget />
+        
+        {/* Footer */}
+        <footer className="bg-black border-t border-black py-8 mt-16 text-white">
+          <div className="container mx-auto px-6">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <div className="mb-4 md:mb-0">
+                <h3 className="text-lg font-semibold text-white mb-2">Lanstar Solutions</h3>
+                <p className="text-gray-300 text-sm">
+                  Empowering businesses with cutting-edge technology solutions
+                </p>
               </div>
-            } />
-          </Routes>
-        </AnimatePresence>
-      </main>
-
-      {/* WhatsApp Widget */}
-      <WhatsappWidget />
-      
-      {/* Footer */}
-      <footer className="bg-black border-t border-black py-8 mt-16 text-white">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <h3 className="text-lg font-semibold text-white mb-2">Lanstar Solutions</h3>
-              <p className="text-gray-300 text-sm">
-                Empowering businesses with cutting-edge technology solutions
-              </p>
-            </div>
-                <div className="flex space-x-6">
+              <div className="flex space-x-6">
                 <a href="https://twitter.com/lanstar_solutions" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white transition-colors">
                   <span className="sr-only">Twitter</span>
                   <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -93,29 +127,29 @@ const App = () => {
                   </svg>
                 </a>
               </div>
-          </div>
-          <div className="mt-8 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              &copy; {new Date().getFullYear()} Lanstar Solutions. All rights reserved.
-            </p>
-            <div className="mt-4 md:mt-0 flex space-x-6">
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                Terms of Service
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                Contact Us
-              </a>
+            </div>
+            <div className="mt-8 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+              <p className="text-gray-400 text-sm">
+                &copy; {new Date().getFullYear()} Lanstar Solutions. All rights reserved.
+              </p>
+              <div className="mt-4 md:mt-0 flex space-x-6">
+                <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+                  Privacy Policy
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+                  Terms of Service
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+                  Contact Us
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </footer>
-    </div>
+        </footer>
+      </div>
+    </ErrorBoundary>
   );
 };
 
 export default App;
 
-// All pages/components use ApiService for backend communication.

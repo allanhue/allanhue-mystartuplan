@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
-import ApiService from '../services/api';
 
 const About = () => {
   return (
@@ -10,7 +9,7 @@ const About = () => {
         <div
           className="text-center mb-16 py-16 rounded-lg"
           style={{
-            background: "url('/WhatsApp Image 2025-08-05 at 12.26.03_9cf4b4fc.jpg') center/cover no-repeat",
+            background: "url('/Screenshot 2025-12-03 202853 space x 2.png') center/cover no-repeat",
             color: "#fff",
             position: "relative",
           }}

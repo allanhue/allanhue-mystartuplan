@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { UserAuth } from '../context/AuthContext';
-import { backendApiUrl } from '../superbaseClient';
 
-// Lightweight payment component (no @stripe/* client libs required)
+// Use relative API endpoints so frontend does not import any Supabase helpers
 const PaymentComponent = ({
   amount = 99.99,
   title = 'LanStartup Service',
@@ -22,12 +21,9 @@ const PaymentComponent = ({
       setError(null);
 
       try {
-        const resp = await fetch(`${backendApiUrl}/api/payment/create-payment-intent`, {
+        const resp = await fetch(`/api/payment/create-payment-intent`, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            // Optional: include auth header if your backend requires it
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             amount,
             currency: 'usd',
@@ -138,7 +134,7 @@ export const PaymentHistory = () => {
       }
       setLoading(true);
       try {
-        const resp = await fetch(`${backendApiUrl}/api/payment/history?userId=${encodeURIComponent(user.uid || user.id)}`);
+        const resp = await fetch(`/api/payment/history?userId=${encodeURIComponent(user.uid || user.id)}`);
         const data = await resp.json();
         if (!resp.ok) throw new Error(data?.error || 'Failed to fetch history');
         setPayments(data.payments || []);

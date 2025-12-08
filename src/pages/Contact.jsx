@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ApiService from '../services/api'
+// import ApiService from '../services/api'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -55,14 +55,11 @@ const Contact = () => {
 
   return (
     <div
-      className="relative py-16"
+      className="bg-white py-16"
       style={{
-        background: "url('/WhatsApp Image 2025-08-05 at 12.26.04_1599cfbc.jpg') center/cover no-repeat",
+        background: "url('/image.png') center/cover no-repeat",
       }}
     >
-      {/* Dark overlay for better text visibility */}
-      <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-      <div className="relative z-10">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
@@ -268,7 +265,6 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
   )

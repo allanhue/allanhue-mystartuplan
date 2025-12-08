@@ -1,22 +1,62 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import ApiService from '../services/api';
+import { useState } from 'react';
 
 const Services = () => {
-  const [services, setServices] = useState([]);
-
-  useEffect(() => {
-    // Fetch services from API
-    const fetchServices = async () => {
-      try {
-        const res = await ApiService.getServices();
-        setServices(res.services || []);
-      } catch (error) {
-        setServices([]);
-      }
-    };
-    fetchServices();
-  }, []);
+  // no backend calls — local UI only
+  const [services] = useState([
+    {
+      id: 1,
+      name: 'Data Science & Analytics',
+      icon: '📊',
+      features: [
+        'Predictive Analytics & Machine Learning',
+        'Data Visualization (Power BI, Tableau)',
+        'Statistical Analysis & Reporting',
+        'AI Model Development & Deployment',
+        'Data Pipeline Architecture',
+      ],
+      price: 199.99,
+    },
+    {
+      id: 2,
+      name: 'Software Development',
+      icon: '💻',
+      features: [
+        'Custom Web Applications',
+        'Mobile App Development',
+        'RESTful API Development',
+        'Database Design & Optimization',
+        'Cloud Solutions & DevOps',
+      ],
+      price: 199.99,
+    },
+    {
+      id: 3,
+      name: 'Zoho & Odoo Implementation',
+      icon: '⚙️',
+      features: [
+        'CRM/ERP System Setup',
+        'Workflow Automation',
+        'Third-Party Integrations',
+        'Custom Module Development',
+        'Training & Support',
+      ],
+      price: 199.99,
+    },
+    {
+      id: 4,
+      name: 'IT Management & Infrastructure',
+      icon: '🌐',
+      features: [
+        'DNS Management & Configuration',
+        'SSL Certificate Implementation',
+        'Server Setup & Maintenance',
+        'Cloud Infrastructure Management',
+        'Security & Monitoring',
+      ],
+      price: 199.99,
+    },
+  ]);
 
   return (
     <div className="bg-white py-16 min-h-screen">
@@ -25,7 +65,7 @@ const Services = () => {
         <div
           className="text-center mb-16 py-16 rounded-lg"
           style={{
-            background: "url('/WhatsApp Image 2025-08-05 at 12.21.56_e942a514.jpg') center/cover no-repeat",
+            background: "url('/image.png') center/cover no-repeat",
             color: "#fff",
             position: "relative",
           }}
