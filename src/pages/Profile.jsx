@@ -314,7 +314,7 @@ const Profile = () => {
   const stats = [
     { label: 'Projects Completed', value: '10', icon: FiCheckCircle, color: 'text-green-400' },
     { label: 'Client Satisfaction', value: '98%', icon: FiStar, color: 'text-yellow-400' },
-    { label: 'Years Experience', value: '2+', icon: FiTrendingUp, color: 'text-blue-400' },
+    { label: 'Years Experience', value: '2+', icon: FiTrendingUp, color: 'text-cyan-400' },
     { label: 'Technologies', value: '10+', icon: FiHeart, color: 'text-pink-400' }
   ];
 

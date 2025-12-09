@@ -113,17 +113,17 @@ const App = () => {
                 <h4 className="text-base font-semibold text-white mb-4">Quick Links</h4>
                 <ul className="space-y-2">
                   <li>
-                    <Link to="/services" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
+                    <Link to="/services" className="text-gray-400 hover:text-cyan-400 text-sm transition-colors duration-200">
                       Services
                     </Link>
                   </li>
                   <li>
-                    <Link to="/about" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
+                    <Link to="/about" className="text-gray-400 hover:text-cyan-400 text-sm transition-colors duration-200">
                       About Us
                     </Link>
                   </li>
                   <li>
-                    <Link to="/contact" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
+                    <Link to="/contact" className="text-gray-400 hover:text-cyan-400 text-sm transition-colors duration-200">
                       Contact
                     </Link>
                   </li>
@@ -135,7 +135,7 @@ const App = () => {
                 <h4 className="text-base font-semibold text-white mb-4">Contact</h4>
                 <ul className="space-y-3">
                   <li>
-                    <a href="mailto:centralhype9@gmail.com" className="flex items-center text-gray-400 hover:text-white text-sm transition-colors duration-200">
+                    <a href="mailto:centralhype9@gmail.com" className="flex items-center text-gray-400 hover:text-cyan-400 text-sm transition-colors duration-200">
                       <svg className="h-5 w-5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                       </svg>
@@ -143,7 +143,7 @@ const App = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="tel:+254731430273" className="flex items-center text-gray-400 hover:text-white text-sm transition-colors duration-200">
+                    <a href="tel:+254731430273" className="flex items-center text-gray-400 hover:text-cyan-400 text-sm transition-colors duration-200">
                       <svg className="h-5 w-5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                       </svg>
@@ -159,7 +159,7 @@ const App = () => {
                 <div className="flex space-x-4">
                   <a 
                     href="https://twitter.com/lanstar_solutions" 
-                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                    className="text-gray-400 hover:text-cyan-400 transition-colors duration-200"
                     aria-label="Twitter"
                   >
                     <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -176,13 +176,13 @@ const App = () => {
                 &copy; {new Date().getFullYear()} Lanstar Solutions. All rights reserved.
               </p>
               <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-                <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
+                <a href="#" className="text-gray-400 hover:text-cyan-400 text-sm transition-colors duration-200">
                   Privacy Policy
                 </a>
-                <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
+                <a href="#" className="text-gray-400 hover:text-cyan-400 text-sm transition-colors duration-200">
                   Terms of Service
                 </a>
-                <Link to="/contact" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
+                <Link to="/contact" className="text-gray-400 hover:text-cyan-400 text-sm transition-colors duration-200">
                   Contact Us
                 </Link>
               </div>

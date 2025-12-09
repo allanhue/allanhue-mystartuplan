@@ -45,7 +45,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center">
-              <span className="text-2xl font-extrabold bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-300 bg-clip-text text-transparent tracking-tight">
+              <span className="text-2xl font-extrabold bg-gradient-to-r from-cyan-400 via-teal-400 to-cyan-500 bg-clip-text text-transparent tracking-tight">
                 Lanstar
               </span>
             </Link>
@@ -59,7 +59,7 @@ export default function Navbar() {
                 to={link.path}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 no-underline ${
                   scrolled
-                    ? 'text-neutral-700 hover:text-blue-600 dark:text-neutral-300 dark:hover:text-blue-400'
+                    ? 'text-neutral-700 hover:text-cyan-500 dark:text-neutral-300 dark:hover:text-cyan-400'
                     : 'text-neutral-200 hover:text-white dark:text-neutral-300 dark:hover:text-white'
                 }`}
               >
@@ -79,7 +79,7 @@ export default function Navbar() {
                   to="/profile"
                   className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 no-underline ${
                     scrolled
-                      ? 'text-neutral-700 hover:text-blue-600 dark:text-neutral-300 dark:hover:text-blue-400'
+                      ? 'text-neutral-700 hover:text-cyan-500 dark:text-neutral-300 dark:hover:text-cyan-400'
                       : 'text-neutral-200 hover:text-white dark:text-neutral-300 dark:hover:text-white'
                   }`}
                 >
@@ -101,7 +101,7 @@ export default function Navbar() {
             ) : (
               <Link
                 to="/auth"
-                className="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-all duration-200 shadow-sm hover:shadow-md hover:scale-105 no-underline"
+                className="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-md text-white bg-cyan-500 hover:bg-cyan-600 dark:bg-teal-500 dark:hover:bg-teal-600 transition-all duration-200 shadow-sm hover:shadow-md hover:scale-105 no-underline"
               >
                 <FiLogIn className="w-4 h-4 mr-1.5" />
                 Sign Up
@@ -114,9 +114,9 @@ export default function Navbar() {
             <ThemeToggle />
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className={`inline-flex items-center justify-center p-2 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 ${
+              className={`inline-flex items-center justify-center p-2 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500 ${
                 scrolled
-                  ? 'text-neutral-700 hover:text-blue-600 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800'
+                  ? 'text-neutral-700 hover:text-cyan-500 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800'
                   : 'text-neutral-200 hover:text-white dark:text-neutral-300 dark:hover:text-white'
               }`}
               aria-expanded="false"
@@ -174,7 +174,7 @@ export default function Navbar() {
           ) : (
             <Link
               to="/auth"
-              className="block px-3 py-2 rounded-md text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-colors duration-200 no-underline text-center"
+              className="block px-3 py-2 rounded-md text-base font-semibold text-white bg-cyan-500 hover:bg-cyan-600 dark:bg-teal-500 dark:hover:bg-teal-600 transition-colors duration-200 no-underline text-center"
               onClick={() => setMenuOpen(false)}
             >
               Sign Up

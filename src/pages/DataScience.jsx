@@ -149,7 +149,7 @@ const DataScience = () => {
           <div className="space-x-4">
             <Link 
               to="/contact" 
-              className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors inline-block text-lg"
+              className="bg-cyan-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-cyan-600 transition-colors inline-block text-lg"
             >
               Get Started
             </Link>

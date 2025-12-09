@@ -93,7 +93,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-black focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors"
                     placeholder="Your full name"
                   />
                 </div>
@@ -108,7 +108,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-black focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -125,7 +125,7 @@ const Contact = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-black focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors"
                     placeholder="Your company name"
                   />
                 </div>
@@ -139,7 +139,7 @@ const Contact = () => {
                     value={formData.service}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-black focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors"
                   >
                     <option value="">Select a service</option>
                     <option value="web-development">Web Development</option>
@@ -162,7 +162,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-black focus:outline-none transition-colors resize-vertical"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors resize-vertical"
                   placeholder="Tell us about your project, challenges, and goals..."
                 ></textarea>
               </div>
@@ -180,7 +180,7 @@ const Contact = () => {
                 className={`w-full py-4 px-6 rounded-lg font-bold transition-colors ${
                   isSubmitting 
                     ? 'bg-gray-400 cursor-not-allowed' 
-                    : 'bg-black text-white hover:bg-gray-900'
+                    : 'bg-cyan-500 text-white hover:bg-cyan-600'
                 }`}
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}

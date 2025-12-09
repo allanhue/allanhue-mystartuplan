@@ -219,13 +219,13 @@ const ZohoOdoo = () => {
           <div className="space-x-4">
             <Link 
               to="/contact" 
-              className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors inline-block text-lg"
+              className="bg-cyan-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-cyan-600 transition-colors inline-block text-lg"
             >
               Get Free Consultation
             </Link>
             <Link 
               to="/services" 
-              className="border-2 border-black text-black px-8 py-4 rounded-lg font-semibold hover:bg-black hover:text-white transition-colors inline-block text-lg"
+              className="border-2 border-cyan-500 text-cyan-600 px-8 py-4 rounded-lg font-semibold hover:bg-cyan-500 hover:text-white transition-colors inline-block text-lg"
             >
               View All Services
             </Link>

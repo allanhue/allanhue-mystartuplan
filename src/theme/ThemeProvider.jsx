@@ -69,7 +69,7 @@ export const ThemeProvider = ({ children }) => {
   if (!isMounted) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-white dark:bg-neutral-950">
-        <div className="w-12 h-12 border-4 border-blue-600 rounded-full border-t-transparent animate-spin"></div>
+        <div className="w-12 h-12 border-4 border-cyan-500 rounded-full border-t-transparent animate-spin"></div>
       </div>
     );
   }

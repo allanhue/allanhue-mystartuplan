@@ -31,22 +31,22 @@ const features = [
   {
     title: 'Expert Technicians',
     description: 'Our certified technicians have years of experience in handling all types of technical issues.',
-    icon: <FiShield className="w-8 h-8 text-primary-600 dark:text-primary-400" />,
+    icon: <FiShield className="w-8 h-8 text-cyan-500 dark:text-teal-400" />,
   },
   {
     title: 'Fast Response',
     description: 'We offer quick response times to ensure your technical issues are resolved as soon as possible.',
-    icon: <FiZap className="w-8 h-8 text-primary-600 dark:text-primary-400" />,
+    icon: <FiZap className="w-8 h-8 text-cyan-500 dark:text-teal-400" />,
   },
   {
     title: 'Affordable Pricing',
     description: 'High-quality services at competitive prices with no hidden fees.',
-    icon: <FiDollarSign className="w-8 h-8 text-primary-600 dark:text-primary-400" />,
+    icon: <FiDollarSign className="w-8 h-8 text-cyan-500 dark:text-teal-400" />,
   },
   {
     title: '24/7 Support',
     description: 'Round-the-clock support to assist you whenever you need help.',
-    icon: <FiClock className="w-8 h-8 text-primary-600 dark:text-primary-400" />,
+    icon: <FiClock className="w-8 h-8 text-cyan-500 dark:text-teal-400" />,
   },
 ];
 
@@ -125,7 +125,7 @@ const Home = () => {
             >
               <Link
                 to="/services"
-                className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+                className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-md text-white bg-cyan-500 hover:bg-cyan-600 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
               >
                 Our Services
                 <FiArrowRight className="ml-2 h-5 w-5" />
@@ -148,7 +148,7 @@ const Home = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Why Choose Us
             </h2>
-            <div className="w-24 h-1 bg-blue-500 mx-auto rounded-full mb-4"></div>
+            <div className="w-24 h-1 bg-cyan-500 mx-auto rounded-full mb-4"></div>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Trusted by businesses worldwide for reliable IT solutions
             </p>
@@ -164,7 +164,7 @@ const Home = () => {
                 variants={itemVariants}
                 className="bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-neutral-700 hover:scale-105"
               >
-                <div className="w-14 h-14 flex items-center justify-center rounded-lg bg-blue-50 dark:bg-neutral-700 text-blue-600 dark:text-blue-400 mb-5">
+                <div className="w-14 h-14 flex items-center justify-center rounded-lg bg-cyan-50 dark:bg-neutral-700 text-cyan-500 dark:text-cyan-400 mb-5">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
@@ -186,7 +186,7 @@ const Home = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Our Services
             </h2>
-            <div className="w-24 h-1 bg-blue-500 mx-auto rounded-full mb-4"></div>
+            <div className="w-24 h-1 bg-cyan-500 mx-auto rounded-full mb-4"></div>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               We offer a wide range of IT services to meet your business needs.
             </p>
@@ -201,14 +201,14 @@ const Home = () => {
                 viewport={{ once: true }}
                 variants={itemVariants}
                 whileHover={{ y: -8, scale: 1.02 }}
-                className="group bg-white dark:bg-neutral-800 rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 dark:border-neutral-700 hover:border-blue-500 dark:hover:border-blue-500"
+                className="group bg-white dark:bg-neutral-800 rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 dark:border-neutral-700 hover:border-cyan-500 dark:hover:border-teal-500"
               >
                 <div className="flex items-start mb-4">
-                  <div className="w-14 h-14 rounded-xl bg-blue-50 dark:bg-neutral-700 flex items-center justify-center text-2xl mr-5 flex-shrink-0 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-colors">
+                  <div className="w-14 h-14 rounded-xl bg-cyan-50 dark:bg-neutral-700 flex items-center justify-center text-2xl mr-5 flex-shrink-0 group-hover:bg-cyan-100 dark:group-hover:bg-teal-900/30 transition-colors">
                     {service.icon}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-cyan-500 dark:group-hover:text-teal-400 transition-colors">
                       {service.name}
                     </h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-5 leading-relaxed">
@@ -216,7 +216,7 @@ const Home = () => {
                     </p>
                     <Link
                       to={service.path || `/payment?service=${encodeURIComponent(service.name)}&amount=99.99`}
-                      className="inline-flex items-center px-4 py-2 text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-700 dark:hover:text-blue-300 transition-colors border-b-2 border-transparent hover:border-blue-600 dark:hover:border-blue-400"
+                      className="inline-flex items-center px-4 py-2 text-cyan-500 dark:text-teal-400 font-semibold hover:text-cyan-600 dark:hover:text-teal-300 transition-colors border-b-2 border-transparent hover:border-cyan-500 dark:hover:border-teal-400"
                     >
                       Learn more
                       <FiArrowRight className="ml-2 h-4 w-4" />
@@ -230,7 +230,7 @@ const Home = () => {
           <div className="text-center mt-16">
             <Link
               to="/services"
-              className="inline-flex items-center px-8 py-3.5 text-base font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+              className="inline-flex items-center px-8 py-3.5 text-base font-semibold rounded-md text-white bg-cyan-500 hover:bg-cyan-600 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
             >
               View All Services
               <FiArrowRight className="ml-2 h-5 w-5" />
@@ -240,7 +240,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-28 bg-gradient-to-r from-blue-600 via-blue-700 to-green-600">
+      <section className="py-20 md:py-28 bg-gradient-to-r from-cyan-500 via-teal-500 to-teal-600">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial="hidden"
@@ -281,7 +281,7 @@ const Home = () => {
             >
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-md text-blue-600 bg-white hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+                className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-md text-cyan-600 bg-white hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
               >
                 Contact Us
               </Link>

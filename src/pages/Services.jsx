@@ -98,7 +98,7 @@ const Services = () => {
                 </ul>
                 <Link
                   to={`/payment?service=${encodeURIComponent(service.name)}&amount=${encodeURIComponent(service.price || 99.99)}`}
-                  className="block w-full bg-black text-white text-center py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+                  className="block w-full bg-cyan-500 text-white text-center py-3 rounded-lg font-semibold hover:bg-cyan-600 transition-colors"
                 >
                   Learn More / Purchase
                 </Link>
@@ -135,7 +135,7 @@ const Services = () => {
                 </ul>
                 <Link 
                   to={`/payment?service=${encodeURIComponent('Data Science & Analytics')}&amount=${encodeURIComponent(199.99)}`} 
-                  className="block w-full bg-black text-white text-center py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+                  className="block w-full bg-cyan-500 text-white text-center py-3 rounded-lg font-semibold hover:bg-cyan-600 transition-colors"
                 >
                   Learn More
                 </Link>
@@ -169,7 +169,7 @@ const Services = () => {
                 </ul>
                 <Link 
                   to={`/payment?service=${encodeURIComponent('Software Development')}&amount=${encodeURIComponent(199.99)}`} 
-                  className="block w-full bg-black text-white text-center py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+                  className="block w-full bg-cyan-500 text-white text-center py-3 rounded-lg font-semibold hover:bg-cyan-600 transition-colors"
                 >
                   Learn More
                 </Link>
@@ -203,7 +203,7 @@ const Services = () => {
                 </ul>
                 <Link 
                   to={`/payment?service=${encodeURIComponent('Zoho & Odoo Implementation')}&amount=${encodeURIComponent(199.99)}`} 
-                  className="block w-full bg-black text-white text-center py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+                  className="block w-full bg-cyan-500 text-white text-center py-3 rounded-lg font-semibold hover:bg-cyan-600 transition-colors"
                 >
                   Learn More
                 </Link>
@@ -237,7 +237,7 @@ const Services = () => {
                 </ul>
                 <Link 
                   to={`/payment?service=${encodeURIComponent('IT Management & Infrastructure')}&amount=${encodeURIComponent(199.99)}`} 
-                  className="block w-full bg-black text-white text-center py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+                  className="block w-full bg-cyan-500 text-white text-center py-3 rounded-lg font-semibold hover:bg-cyan-600 transition-colors"
                 >
                   Learn More
                 </Link>
@@ -251,28 +251,28 @@ const Services = () => {
           <h2 className="text-4xl font-bold text-center mb-12 text-black">Our Process</h2>
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              <div className="bg-cyan-500 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 1
               </div>
               <h3 className="text-xl font-bold mb-2 text-black">Discovery</h3>
               <p className="text-gray-600">We understand your business needs and challenges</p>
             </div>
             <div className="text-center">
-              <div className="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              <div className="bg-cyan-500 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 2
               </div>
               <h3 className="text-xl font-bold mb-2 text-black">Strategy</h3>
               <p className="text-gray-600">We develop a tailored solution strategy</p>
             </div>
             <div className="text-center">
-              <div className="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              <div className="bg-cyan-500 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 3
               </div>
               <h3 className="text-xl font-bold mb-2 text-black">Implementation</h3>
               <p className="text-gray-600">We execute the solution with precision</p>
             </div>
             <div className="text-center">
-              <div className="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              <div className="bg-cyan-500 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 4
               </div>
               <h3 className="text-xl font-bold mb-2 text-black">Support</h3>
@@ -289,7 +289,7 @@ const Services = () => {
           </p>
           <Link 
             to="/contact" 
-            className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors inline-block text-lg"
+            className="bg-cyan-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-cyan-600 transition-colors inline-block text-lg"
           >
             Get Free Consultation
           </Link>

@@ -85,7 +85,7 @@ const About = () => {
           <h2 className="text-4xl font-bold text-center mb-12 text-black">Our Approach</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="bg-black text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+              <div className="bg-cyan-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
                 🤝
               </div>
               <h3 className="text-xl font-bold mb-3 text-black">Partnership Mindset</h3>
@@ -94,7 +94,7 @@ const About = () => {
               </p>
             </div>
             <div className="text-center">
-              <div className="bg-black text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+              <div className="bg-cyan-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
                 🎯
               </div>
               <h3 className="text-xl font-bold mb-3 text-black">Results-Focused</h3>
@@ -103,7 +103,7 @@ const About = () => {
               </p>
             </div>
             <div className="text-center">
-              <div className="bg-black text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+              <div className="bg-cyan-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
                 🚀
               </div>
               <h3 className="text-xl font-bold mb-3 text-black">Innovation-Driven</h3>
@@ -172,7 +172,7 @@ const About = () => {
           <div className="space-x-4">
             <Link 
               to="/contact" 
-              className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors inline-block text-lg"
+              className="bg-cyan-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-cyan-600 transition-colors inline-block text-lg"
             >
               Get In Touch
             </Link>
