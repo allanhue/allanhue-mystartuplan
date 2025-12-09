@@ -140,7 +140,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors"
-                  >
+                  style={{color:"black"}} >
                     <option value="">Select a service</option>
                     <option value="web-development">Web Development</option>
                     <option value="mobile-apps">Mobile Apps</option>
@@ -163,7 +163,7 @@ const Contact = () => {
                   required
                   rows={6}
                   className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors resize-vertical"
-                  placeholder="Tell us about your project, challenges, and goals..."
+                  placeholder="Tell us about your project challenges and goals facing you."
                 ></textarea>
               </div>
 
