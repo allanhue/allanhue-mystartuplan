@@ -68,17 +68,15 @@ export const ThemeProvider = ({ children }) => {
   // Move conditional rendering after all hooks
   if (!isMounted) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-bg-primary">
-        <div className="w-12 h-12 border-4 border-primary rounded-full border-t-transparent animate-spin"></div>
+      <div className="flex items-center justify-center min-h-screen bg-white dark:bg-neutral-950">
+        <div className="w-12 h-12 border-4 border-blue-600 rounded-full border-t-transparent animate-spin"></div>
       </div>
     );
   }
 
   return (
     <ThemeContext.Provider value={themeContextValue}>
-      <div className={`theme-${theme} min-h-screen bg-bg-primary text-text-primary transition-colors duration-200`}>
-        {children}
-      </div>
+      {children}
     </ThemeContext.Provider>
   );
 };

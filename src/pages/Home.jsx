@@ -84,7 +84,7 @@ const Home = () => {
     <div className="min-h-screen bg-white dark:bg-neutral-900">
       {/* Hero Section */}
       <section
-        className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-black"
+        className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-black"
         style={{
           backgroundImage: "url('/Screenshot 2025-12-03 202853 space x 2.png')",
           backgroundSize: 'cover',
@@ -97,7 +97,7 @@ const Home = () => {
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-3xl mx-auto text-center"
           >
             <motion.h1 
               variants={itemVariants}
@@ -111,7 +111,7 @@ const Home = () => {
             
             <motion.p 
               variants={itemVariants}
-              className="text-lg md:text-xl text-white mb-10 max-w-2xl mx-auto font-semibold"
+              className="text-lg md:text-xl text-white mb-10 max-w-2xl mx-auto font-medium"
               style={{
                 textShadow: "2px 2px 4px rgba(0,0,0,0.9)",
               }}
@@ -125,10 +125,16 @@ const Home = () => {
             >
               <Link
                 to="/services"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
+                className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
               >
                 Our Services
                 <FiArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-md text-white border-2 border-white/80 hover:bg-white/10 transition-all duration-200"
+              >
+                Get Started
               </Link>
             </motion.div>
           </motion.div>
@@ -136,16 +142,19 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 md:py-24 bg-white dark:bg-neutral-900">
+      <section className="py-20 md:py-28 bg-white dark:bg-neutral-900">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Why Choose Us
             </h2>
-            <div className="w-20 h-1 bg-blue-500 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-blue-500 mx-auto rounded-full mb-4"></div>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Trusted by businesses worldwide for reliable IT solutions
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -153,15 +162,15 @@ const Home = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={itemVariants}
-                className="bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-200 dark:border-neutral-700"
+                className="bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-neutral-700 hover:scale-105"
               >
-                <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-blue-50 dark:bg-neutral-700 text-blue-600 dark:text-blue-400 mb-4">
+                <div className="w-14 h-14 flex items-center justify-center rounded-lg bg-blue-50 dark:bg-neutral-700 text-blue-600 dark:text-blue-400 mb-5">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>
@@ -171,19 +180,19 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-16 md:py-24 bg-gray-50 dark:bg-neutral-800">
+      <section className="py-20 md:py-28 bg-gray-50 dark:bg-neutral-800">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Our Services
             </h2>
-            <div className="w-20 h-1 bg-blue-500 mx-auto rounded-full mb-8"></div>
+            <div className="w-24 h-1 bg-blue-500 mx-auto rounded-full mb-4"></div>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               We offer a wide range of IT services to meet your business needs.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service, index) => (
               <motion.div
                 key={index}
@@ -191,23 +200,23 @@ const Home = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={itemVariants}
-                whileHover={{ y: -5 }}
-                className="group bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-neutral-700"
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="group bg-white dark:bg-neutral-800 rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 dark:border-neutral-700 hover:border-blue-500 dark:hover:border-blue-500"
               >
-                <div className="flex items-start">
-                  <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-neutral-700 flex items-center justify-center text-2xl mr-4 flex-shrink-0">
+                <div className="flex items-start mb-4">
+                  <div className="w-14 h-14 rounded-xl bg-blue-50 dark:bg-neutral-700 flex items-center justify-center text-2xl mr-5 flex-shrink-0 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-colors">
                     {service.icon}
                   </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                       {service.name}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400 mb-4">
+                    <p className="text-gray-600 dark:text-gray-400 mb-5 leading-relaxed">
                       {service.description}
                     </p>
                     <Link
                       to={service.path || `/payment?service=${encodeURIComponent(service.name)}&amount=99.99`}
-                      className="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                      className="inline-flex items-center px-4 py-2 text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-700 dark:hover:text-blue-300 transition-colors border-b-2 border-transparent hover:border-blue-600 dark:hover:border-blue-400"
                     >
                       Learn more
                       <FiArrowRight className="ml-2 h-4 w-4" />
@@ -218,52 +227,67 @@ const Home = () => {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <Link
               to="/services"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
+              className="inline-flex items-center px-8 py-3.5 text-base font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
             >
               View All Services
+              <FiArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-blue-600 to-green-500">
+      <section className="py-20 md:py-28 bg-gradient-to-r from-blue-600 via-blue-700 to-green-600">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={containerVariants}
-            className="max-w-3xl mx-auto"
+            className="max-w-4xl mx-auto"
           >
             <motion.h2 
               variants={itemVariants}
-              className="text-3xl md:text-4xl font-bold text-white mb-6"
+              className="text-4xl md:text-5xl font-bold text-white mb-4"
             >
               Ready to Transform Your Business?
             </motion.h2>
             <motion.p 
               variants={itemVariants}
-              className="text-xl text-white/90 mb-8"
+              className="text-xl md:text-2xl text-white/95 mb-6 max-w-2xl mx-auto"
             >
               Get in touch with our team today and let's discuss how we can help your business grow.
             </motion.p>
+            <motion.div 
+              variants={itemVariants}
+              className="flex flex-wrap justify-center gap-3 mb-8"
+            >
+              <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium text-white">
+                Fast Response
+              </span>
+              <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium text-white">
+                24/7 Support
+              </span>
+              <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium text-white">
+                Affordable Pricing
+              </span>
+            </motion.div>
             <motion.div 
               variants={itemVariants}
               className="flex flex-col sm:flex-row justify-center gap-4"
             >
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-blue-600 bg-white hover:bg-gray-100 transition-colors duration-200"
+                className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-md text-blue-600 bg-white hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
               >
                 Contact Us
               </Link>
               <Link
                 to="/about"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-white border-2 border-white hover:bg-white/10 transition-colors duration-200"
+                className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-md text-white border-2 border-white/80 hover:bg-white/10 transition-all duration-200"
               >
                 Learn More About Us
               </Link>
