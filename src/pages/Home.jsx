@@ -123,7 +123,7 @@ const Home = () => {
               variants={itemVariants}
               className="flex flex-col sm:flex-row justify-center gap-4"
             >
-              <Link
+              {/* <Link
                 to="/services"
                 className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-md text-white bg-cyan-500 hover:bg-cyan-600 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
               >
@@ -135,7 +135,7 @@ const Home = () => {
                 className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-md text-white border-2 border-white/80 hover:bg-white/10 transition-all duration-200"
               >
                 Get Started
-              </Link>
+              </Link> */}
             </motion.div>
           </motion.div>
         </div>
