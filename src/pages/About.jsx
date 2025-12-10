@@ -57,9 +57,9 @@ const About = () => {
                 Software Engineer & Business Automation Specialist
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
-                With extensive experience in data science, software development, and business process automation, 
+                With extensive experience in data science, software development and business process automation, 
                 Allan founded Lanstar Solutions to help businesses leverage technology for growth and efficiency. 
-                His expertise spans across multiple domains including machine learning, web development, 
+                His expertise spans across multiple domains including machine learning, applications/Saas development, 
                 and enterprise system implementation.
               </p>
               <div className="grid md:grid-cols-3 gap-4 text-center">
