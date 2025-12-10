@@ -29,17 +29,19 @@ const About = () => {
           <div className="bg-gray-50 p-8 rounded-lg">
             <h2 className="text-3xl font-bold mb-6 text-black">Our Mission</h2>
             <p className="text-gray-600 text-lg leading-relaxed">
-              To empower businesses with cutting-edge technology solutions that drive growth, 
-              efficiency, and innovation. We believe that every company, regardless of size, 
-              deserves access to enterprise-level technology solutions.
+    
+              To empower businesses to achieve operational excellence and 
+              sustainable growth through innovative technology solutions, 
+              data-driven insights and seamless automation of processes.
             </p>
           </div>
           <div className="bg-black text-white p-8 rounded-lg">
             <h2 className="text-3xl font-bold mb-6">Our Vision</h2>
             <p className="text-gray-300 text-lg leading-relaxed">
-              To be the trusted technology partner that transforms businesses through 
-              intelligent automation, data-driven insights, and innovative software solutions 
-              that create lasting competitive advantages.
+            
+              To be a global leader in technology consulting, recognized for 
+              transforming businesses with cutting-edge solutions that drive 
+              efficiency, innovation and long-term success.
             </p>
           </div>
         </div>

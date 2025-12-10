@@ -104,7 +104,7 @@ const App = () => {
               <div>
                 <h3 className="text-lg font-bold text-white mb-4">Lanstar Solutions</h3>
                 <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                  Empowering businesses with cutting-edge technology solutions
+                 Efficiency redefined.
                 </p>
               </div>
 
