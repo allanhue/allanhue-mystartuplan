@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { FiMail, FiPhone, FiMapPin, FiCheckCircle } from 'react-icons/fi';
+
 // import ApiService from '../services/api'
 
 const Contact = () => {
@@ -140,13 +142,15 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors"
-                  style={{color:"black"}} >
+                    style={{color:"black"}}
+                  >
                     <option value="">Select a service</option>
-                    <option value="web-development">Web Development</option>
-                    <option value="mobile-apps">Mobile Apps</option>
-                    <option value="ui-ux">UI/UX Design</option>
-                    <option value="devops">DevOps</option>
-                    <option value="consulting">IT Consulting</option>
+                    <option value="data-science">Data Science & Machine Learning</option>
+                    <option value="web-development">Full-Stack Web Development</option>
+                    <option value="mobile-development">Mobile App Development</option>
+                    <option value="zoho-odoo">Zoho & Odoo Implementation</option>
+                    <option value="cloud-devops">Cloud & DevOps Solutions</option>
+                    <option value="it-consulting">IT Consulting & Strategy</option>
                   </select>
                 </div>
               </div>
@@ -190,57 +194,62 @@ const Contact = () => {
 
           {/* Contact Information */}
           <div className="space-y-8">
-            <div className="bg-gray-50 p-8 rounded-lg">
+            <div className="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition-all">
               <h2 className="text-3xl font-bold mb-6 text-black">Contact Information</h2>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="text-2xl mr-4">📧</div>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-cyan-100 text-cyan-600 flex-shrink-0 mt-1">
+                    <FiMail className="w-6 h-6" />
+                  </div>
                   <div>
-                    <h3 className="font-bold text-black">Email</h3>
-                    <p className="text-gray-600">centralhype9@gmail.com</p>
+                    <h3 className="font-bold text-black mb-1">Email</h3>
                     <p className="text-gray-600">centralhype9@gmail.com</p>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <div className="text-2xl mr-4">📱</div>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-cyan-100 text-cyan-600 flex-shrink-0 mt-1">
+                    <FiPhone className="w-6 h-6" />
+                  </div>
                   <div>
-                    <h3 className="font-bold text-black">Phone</h3>
+                    <h3 className="font-bold text-black mb-1">Phone</h3>
                     <p className="text-gray-600">+254 0731430273</p>
-                    <p className="text-gray-600">Available Mon-Fri, 9AM-6PM EAT</p>
+                    <p className="text-gray-600 text-sm">Available Mon-Fri, 9AM-6PM EAT</p>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <div className="text-2xl mr-4">🌍</div>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-cyan-100 text-cyan-600 flex-shrink-0 mt-1">
+                    <FiMapPin className="w-6 h-6" />
+                  </div>
                   <div>
-                    <h3 className="font-bold text-black">Location</h3>
+                    <h3 className="font-bold text-black mb-1">Location</h3>
                     <p className="text-gray-600">Nairobi, Kenya</p>
-                    <p className="text-gray-600">Serving clients globally</p>
+                    <p className="text-gray-600 text-sm">Serving clients globally</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-black text-white p-8 rounded-lg">
+            <div className="bg-black text-white p-8 rounded-lg hover:shadow-lg transition-all">
               <h3 className="text-2xl font-bold mb-4">Why Work With Us?</h3>
               <ul className="space-y-3">
-                <li className="flex items-start">
-                  <span className="text-yellow-400 mr-2">✓</span>
+                <li className="flex items-start gap-3">
+                  <FiCheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
                   <span>Free initial consultation</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-yellow-400 mr-2">✓</span>
+                <li className="flex items-start gap-3">
+                  <FiCheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
                   <span>Transparent pricing</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-yellow-400 mr-2">✓</span>
+                <li className="flex items-start gap-3">
+                  <FiCheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
                   <span>Proven track record</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-yellow-400 mr-2">✓</span>
+                <li className="flex items-start gap-3">
+                  <FiCheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
                   <span>Ongoing support</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-yellow-400 mr-2">✓</span>
+                <li className="flex items-start gap-3">
+                  <FiCheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
                   <span>Results-driven approach</span>
                 </li>
               </ul>

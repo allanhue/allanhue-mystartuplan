@@ -52,28 +52,28 @@ const features = [
 
 const services = [
   {
-    name: 'IT Support',
-    description: 'Professional IT support services for businesses and individuals.',
+    name: 'Data Science & ML',
+    description: 'Predictive analytics, machine learning models, and data-driven insights for your business.',
+    icon: '📊',
+    path: '/services',
+  },
+  {
+    name: 'Full-Stack Development',
+    description: 'Custom web & mobile applications with cutting-edge technologies.',
     icon: '💻',
-    path: '/services/it-support',
+    path: '/services',
   },
   {
-    name: 'Network Setup',
-    description: 'Complete network infrastructure setup and configuration.',
-    icon: '🌐',
-    path: '/services/network-setup',
+    name: 'Zoho & Odoo',
+    description: 'CRM/ERP implementation, automation, and custom module development.',
+    icon: '⚙️',
+    path: '/services',
   },
   {
-    name: 'Data Recovery',
-    description: 'Expert data recovery services for all types of storage devices.',
-    icon: '💾',
-    path: '/services/data-recovery',
-  },
-  {
-    name: 'LightWeight IT',
-    description: 'Protect your systems from threats with our security solutions.',
-    icon: '🔒',
-    path: '/services/lightweight-it',
+    name: 'Cloud & DevOps',
+    description: 'Cloud infrastructure, deployment automation, and system optimization.',
+    icon: '☁️',
+    path: '/services',
   },
 ];
 
@@ -162,12 +162,12 @@ const Home = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={itemVariants}
-                className="bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-neutral-700 hover:scale-105"
+                className="bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-neutral-700 hover:scale-105 group"
               >
-                <div className="w-14 h-14 flex items-center justify-center rounded-lg bg-cyan-50 dark:bg-neutral-700 text-cyan-500 dark:text-cyan-400 mb-5">
+                <div className="w-14 h-14 flex items-center justify-center rounded-lg bg-cyan-50 dark:bg-neutral-700 text-cyan-500 dark:text-cyan-400 mb-5 group-hover:bg-cyan-100 dark:group-hover:bg-cyan-900/30 transition-colors">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                   {feature.title}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">

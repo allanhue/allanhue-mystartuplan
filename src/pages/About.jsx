@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react';
+import { FiUsers, FiTarget, FiTrendingUp } from 'react-icons/fi';
 
 const About = () => {
   return (
@@ -26,19 +26,27 @@ const About = () => {
 
         {/* Mission & Vision */}
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          <div className="bg-gray-50 p-8 rounded-lg">
-            <h2 className="text-3xl font-bold mb-6 text-black">Our Mission</h2>
+          <div className="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition-all group">
+            <div className="flex items-start gap-4 mb-4">
+              <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-cyan-100 text-cyan-600 flex-shrink-0 group-hover:scale-110 transition-transform">
+                <FiTarget className="w-6 h-6" />
+              </div>
+              <h2 className="text-3xl font-bold text-black">Our Mission</h2>
+            </div>
             <p className="text-gray-600 text-lg leading-relaxed">
-    
               To empower businesses to achieve operational excellence and 
               sustainable growth through innovative technology solutions, 
               data-driven insights and seamless automation of processes.
             </p>
           </div>
-          <div className="bg-black text-white p-8 rounded-lg">
-            <h2 className="text-3xl font-bold mb-6">Our Vision</h2>
+          <div className="bg-black text-white p-8 rounded-lg hover:shadow-lg transition-all group">
+            <div className="flex items-start gap-4 mb-4">
+              <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-cyan-500 text-white flex-shrink-0 group-hover:scale-110 transition-transform">
+                <FiTrendingUp className="w-6 h-6" />
+              </div>
+              <h2 className="text-3xl font-bold">Our Vision</h2>
+            </div>
             <p className="text-gray-300 text-lg leading-relaxed">
-            
               To be a global leader in technology consulting, recognized for 
               transforming businesses with cutting-edge solutions that drive 
               efficiency, innovation and long-term success.
@@ -86,29 +94,29 @@ const About = () => {
         <div className="mb-16">
           <h2 className="text-4xl font-bold text-center mb-12 text-black">Our Approach</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-cyan-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-                🤝
+            <div className="text-center group">
+              <div className="bg-cyan-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                <FiUsers className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-black">Partnership Mindset</h3>
+              <h3 className="text-xl font-bold mb-3 text-black group-hover:text-cyan-600 transition-colors">Partnership Mindset</h3>
               <p className="text-gray-600">
-                We work as your technology partner, not just a vendor. Your success is our success.
+                We work as your technology partner not just a vendor. Your sucess is the key.
               </p>
             </div>
-            <div className="text-center">
-              <div className="bg-cyan-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-                🎯
+            <div className="text-center group">
+              <div className="bg-cyan-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                <FiTarget className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-black">Results-Focused</h3>
+              <h3 className="text-xl font-bold mb-3 text-black group-hover:text-cyan-600 transition-colors">Results-Focused</h3>
               <p className="text-gray-600">
                 Every solution we deliver is designed to provide measurable business value and ROI.
               </p>
             </div>
-            <div className="text-center">
-              <div className="bg-cyan-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-                🚀
+            <div className="text-center group">
+              <div className="bg-cyan-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                <FiTrendingUp className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-black">Innovation-Driven</h3>
+              <h3 className="text-xl font-bold mb-3 text-black group-hover:text-cyan-600 transition-colors">Innovation-Driven</h3>
               <p className="text-gray-600">
                 We stay at the forefront of technology to bring you the most effective solutions.
               </p>
