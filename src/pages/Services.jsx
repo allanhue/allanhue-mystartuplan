@@ -35,8 +35,8 @@ const serviceCategories = [
       'Custom Python/R solutions',
       'AI model deployment & optimization',
     ],
-    price: 'Starting from $199/hour',
-    link: '/payment?service=Data%20Science&amount=199',
+    // price: 'Starting from $199/hour',
+    // link: '/payment?service=Data%20Science&amount=199',
   },
   {
     id: 2,
@@ -52,8 +52,8 @@ const serviceCategories = [
       'Progressive web apps (PWA)',
       'Performance optimization & security',
     ],
-    price: 'Starting from $150/hour',
-    link: '/payment?service=Web%20Development&amount=150',
+    // price: 'Starting from $150/hour',
+    // link: '/payment?service=Web%20Development&amount=150',
   },
   {
     id: 3,
@@ -69,8 +69,8 @@ const serviceCategories = [
       'App store optimization',
       'Real-time notifications & sync',
     ],
-    price: 'Starting from $160/hour',
-    link: '/payment?service=Mobile%20App&amount=160',
+    // price: 'Starting from $160/hour',
+    // link: '/payment?service=Mobile%20App&amount=160',
   },
   {
     id: 4,
@@ -86,8 +86,8 @@ const serviceCategories = [
       'Third-party API integrations',
       'Data migration & training',
     ],
-    price: 'Starting from $120/hour',
-    link: '/payment?service=Zoho%20Odoo&amount=120',
+    // price: 'Starting from $120/hour',
+    // link: '/payment?service=Zoho%20Odoo&amount=120',
   },
   {
     id: 5,
@@ -103,8 +103,8 @@ const serviceCategories = [
       'Server monitoring & maintenance',
       'Database migration & backup solutions',
     ],
-    price: 'Starting from $140/hour',
-    link: '/payment?service=Cloud%20DevOps&amount=140',
+    // price: 'Starting from $140/hour',
+    // link: '/payment?service=Cloud%20DevOps&amount=140',
   },
   {
     id: 6,
@@ -120,8 +120,8 @@ const serviceCategories = [
       'Cost optimization analysis',
       'Change management support',
     ],
-    price: 'Starting from $150/hour',
-    link: '/payment?service=IT%20Consulting&amount=150',
+    // price: 'Starting from $150/hour',
+    // link: '/payment?service=IT%20Consulting&amount=150',
   },
 ];
 
