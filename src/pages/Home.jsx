@@ -59,7 +59,7 @@ const services = [
   },
   {
     name: 'Full-Stack Development',
-    description: 'Custom web & mobile applications with cutting-edge technologies.',
+    description: 'Custom applications with cutting-edge technologies.',
     icon: '💻',
     path: '/services',
   },

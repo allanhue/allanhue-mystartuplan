@@ -78,119 +78,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="bg-white border-2 border-black rounded-lg p-8">
-            <h2 className="text-3xl font-bold mb-6 text-black">Send Us a Message</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-bold text-black mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors"
-                    placeholder="Your full name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-bold text-black mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors"
-                    placeholder="your@email.com"
-                  />
-                </div>
-              </div>
-              
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="company" className="block text-sm font-bold text-black mb-2">
-                    Company Name
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors"
-                    placeholder="Your company name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="service" className="block text-sm font-bold text-black mb-2">
-                    Service Interested In *
-                  </label>
-                  <select
-                    id="service"
-                    name="service"
-                    value={formData.service}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors"
-                    style={{color:"black"}}
-                  >
-                    <option value="">Select a service</option>
-                    <option value="data-science">Data Science & Machine Learning</option>
-                    <option value="web-development">Full-Stack Web Development</option>
-                    <option value="mobile-development">Mobile App Development</option>
-                    <option value="zoho-odoo">Zoho & Odoo Implementation</option>
-                    <option value="cloud-devops">Cloud & DevOps Solutions</option>
-                    <option value="it-consulting">IT Consulting & Strategy</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-bold text-black mb-2">
-                  Project Details *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors resize-vertical"
-                  placeholder="Tell us about your project challenges and goals facing you."
-                ></textarea>
-              </div>
-
-              {/* Status Message */}
-              {submitStatus.message && (
-                <div className={`p-4 rounded-lg ${submitStatus.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
-                  {submitStatus.message}
-                </div>
-              )}
-              
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`w-full py-4 px-6 rounded-lg font-bold transition-colors ${
-                  isSubmitting 
-                    ? 'bg-gray-400 cursor-not-allowed' 
-                    : 'bg-cyan-500 text-white hover:bg-cyan-600'
-                }`}
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </button>
-            </form>
-          </div>
+        
 
           {/* Contact Information */}
           <div className="space-y-8">
@@ -275,7 +163,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </div>
   )
 }
 
