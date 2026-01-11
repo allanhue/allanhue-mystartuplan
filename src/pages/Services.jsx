@@ -40,9 +40,9 @@ const serviceCategories = [
   },
   {
     id: 2,
-    name: 'Full-Stack Web Development',
+    name: 'Full-Stack  Development',
     icon: <FiCode className="w-12 h-12" />,
-    description: 'Custom web applications built with modern technologies and best practices',
+    description: 'Custom  applications built with modern technologies and best practices',
     color: 'teal',
     features: [
       'React, Vue, Angular expertise',
