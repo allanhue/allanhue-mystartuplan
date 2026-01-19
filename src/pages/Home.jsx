@@ -78,7 +78,7 @@ const services = [
 ];
 
 const Home = () => {
-  console.log('Home component rendering'); // debug log
+  // console.log('Home component rendering'); // debug log
 
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-900">
