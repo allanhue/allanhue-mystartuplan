@@ -8,10 +8,13 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Auth from './components/Auth';
 import Profile from './pages/Profile';
+import Preferences from './pages/Preferences';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
+import ThemeCustomizer from './components/ThemeCustomizer';
 import WhatsappWidget from './components/whatsapp';
 import Payment from './pages/payment';
+import './styles/theme-animations.css';
 
 // Error boundary component
 class ErrorBoundary extends React.Component {
@@ -60,6 +63,7 @@ const App = () => {
     <ErrorBoundary>
       <div className="min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 transition-colors duration-200">
         <Navbar />
+        <ThemeCustomizer />
         
         {/* Main Content */}
         <main className="min-h-[calc(100vh-64px)]">
@@ -70,6 +74,7 @@ const App = () => {
               <Route path="/services" element={<Services />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/preferences" element={<Preferences />} />
               <Route path="/payment" element={<Payment />} />
               
               {/* Protected Profile Route */}

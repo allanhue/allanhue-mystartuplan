@@ -1,0 +1,156 @@
+/* Theme Animation Styles */
+
+/* Gradient animation for animated backgrounds */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-gradient-shift {
+    animation: none;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .high-contrast {
+    --border-color: #000000;
+    --text-color: #000000;
+    --bg-color: #ffffff;
+  }
+  
+  .high-contrast .border-gray-200,
+  .high-contrast .border-neutral-700 {
+    border-color: var(--border-color) !important;
+  }
+  
+  .high-contrast .text-gray-600,
+  .high-contrast .text-gray-400 {
+    color: var(--text-color) !important;
+  }
+  
+  .high-contrast .bg-gray-50,
+  .high-contrast .bg-neutral-800 {
+    background-color: var(--bg-color) !important;
+  }
+}
+
+/* Custom CSS variables for style variants */
+:root {
+  --transition-duration: 300ms;
+  --border-radius: 0.5rem;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Style variant classes */
+.variant-modern {
+  --border-radius: 0.5rem;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.variant-minimal {
+  --border-radius: 0;
+  --shadow-sm: none;
+  --shadow-md: none;
+}
+
+.variant-bold {
+  --border-radius: 0;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --border-width: 2px;
+}
+
+.variant-soft {
+  --border-radius: 1rem;
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Font size adjustments */
+.font-size-sm {
+  font-size: 14px;
+}
+
+.font-size-base {
+  font-size: 16px;
+}
+
+.font-size-lg {
+  font-size: 18px;
+}
+
+.font-size-xl {
+  font-size: 20px;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color var(--transition-duration) ease,
+              border-color var(--transition-duration) ease,
+              color var(--transition-duration) ease;
+}
+
+/* Focus indicators for accessibility */
+.focus-visible:focus {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
+}
+
+/* Dark mode specific animations */
+.dark .animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 12s ease infinite;
+}
+
+/* Loading animation for theme switching */
+.theme-switching {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.theme-switching::after {
+  content: '';
+  width: 32px;
+  height: 32px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #0ea5e9;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
