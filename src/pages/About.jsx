@@ -8,21 +8,8 @@ const About = () => {
     <div className={`${isDarkMode ? 'bg-neutral-900' : 'bg-white'} py-16`}>
       {/* Header */}
       <div
-        className="text-center mb-16 py-16 rounded-lg"
-        style={{
-          background: "url('/Screenshot 2025-12-03 202853 space x 2.png') center/cover no-repeat",
-          color: "#fff",
-          position: "relative",
-        }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-60 rounded-lg"></div>
-        <div className="relative z-10">
-          <h1 className="text-5xl font-bold mb-6">About Lanstar</h1>
-          <p className="text-xl max-w-3xl mx-auto">
-            We are a technology consulting firm specializing in data science, software development, 
-            and business process automation to help companies thrive in the digital age.
-          </p>
-        </div>
+     
       </div>
 
         {/* Mission & Vision */}

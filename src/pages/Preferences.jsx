@@ -219,32 +219,7 @@ const Preferences = () => {
               </div>
             </div>
 
-            {/* Sidebar */}
-            <div className="lg:col-span-1">
-              <div className={`p-6 rounded-lg ${isDarkMode ? 'bg-neutral-800' : 'bg-white'}`}>
-                <h3 className="text-lg font-semibold mb-4">Quick Tips</h3>
-                <div className="space-y-4">
-                  <div className={`p-3 rounded-lg ${isDarkMode ? 'bg-neutral-700' : 'bg-gray-50'}`}>
-                    <h4 className="font-medium mb-1">💡 Pro Tip</h4>
-                    <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                      Use the floating settings button to quickly access theme options from any page.
-                    </p>
-                  </div>
-                  <div className={`p-3 rounded-lg ${isDarkMode ? 'bg-neutral-700' : 'bg-gray-50'}`}>
-                    <h4 className="font-medium mb-1">🎨 Customization</h4>
-                    <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                      Combine different themes, backgrounds, and styles to create your perfect look.
-                    </p>
-                  </div>
-                  <div className={`p-3 rounded-lg ${isDarkMode ? 'bg-neutral-700' : 'bg-gray-50'}`}>
-                    <h4 className="font-medium mb-1">💾 Save Your Work</h4>
-                    <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                      Export your settings to backup your customizations or share them with others.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+        
           </div>
         </div>
       </div>

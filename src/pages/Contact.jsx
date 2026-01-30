@@ -67,17 +67,7 @@ const Contact = () => {
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold mb-6 text-white" style={{
-            textShadow: "3px 3px 6px rgba(0,0,0,0.9)",
-            WebkitTextStroke: "1px rgba(0,0,0,0.5)"
-          }}>Get In Touch</h1>
-          <p className="text-xl text-white max-w-3xl mx-auto font-semibold" style={{
-            textShadow: "2px 2px 4px rgba(0,0,0,0.9)",
-            WebkitTextStroke: "0.5px rgba(0,0,0,0.4)"
-          }}>
-            Ready to transform your business with cutting-edge technology solutions? 
-            Let's discuss your project and how we can help you achieve your goals.
-          </p>
+    
         </div>
 
         
