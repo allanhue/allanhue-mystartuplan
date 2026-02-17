@@ -8,9 +8,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Auth from './components/Auth';
 import Profile from './pages/Profile';
-import Preferences from './pages/Preferences';
 import Navbar from './components/Navbar';
-import ProtectedRoute from './components/ProtectedRoute';
 import ThemeCustomizer from './components/ThemeCustomizer';
 import WhatsappWidget from './components/whatsapp';
 import Payment from './pages/payment';
@@ -74,17 +72,11 @@ const App = () => {
               <Route path="/services" element={<Services />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/preferences" element={<Preferences />} />
               <Route path="/payment" element={<Payment />} />
               
-              {/* Protected Profile Route */}
               <Route 
                 path="/profile" 
-                element={
-                  <ProtectedRoute>
-                    <Profile />
-                  </ProtectedRoute>
-                } 
+                element={<Profile />} 
               />
               
               {/* 404 Page */}

@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
-import { FiMessageCircle, FiX } from 'react-icons/fi';
+import { FiX, FiSend } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const WhatsappWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState('');
-  
+
   const phoneNumber = '+254731430273';
   const defaultMessage = 'Hello Allan, I would like to discuss IT solutions for my business.';
+  const agentName = 'Lanstar Support';
+  const agentStatus = 'Online';
 
   const handleWhatsAppClick = () => {
     const encodedMessage = encodeURIComponent(message || defaultMessage);
     const whatsappUrl = `https://wa.me/${phoneNumber.replace('+', '')}?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
   };
-  
+
   const toggleWidget = () => {
     setIsOpen(!isOpen);
   };
@@ -24,25 +27,25 @@ const WhatsappWidget = () => {
       <div className="fixed bottom-6 right-6 z-50">
         <button
           onClick={toggleWidget}
-          className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
+          className="bg-[#25D366] hover:bg-[#1DAE57] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
           aria-label="Open WhatsApp chat"
         >
-          <FiMessageCircle className="w-6 h-6" />
+          <FaWhatsapp className="w-7 h-7" />
         </button>
       </div>
 
       {/* WhatsApp Chat Widget */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-80 bg-white rounded-lg shadow-2xl border border-gray-200">
+        <div className="fixed bottom-24 right-6 z-50 w-80 bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden">
           {/* Header */}
-          <div className="bg-green-500 text-white p-4 rounded-t-lg flex items-center justify-between">
+          <div className="bg-[#075E54] text-white p-4 flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <span className="text-green-500 text-xl">💬</span>
+              <div className="w-10 h-10 bg-[#128C7E] rounded-full flex items-center justify-center">
+                <FaWhatsapp className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h3 className="font-semibold">WhatsApp Chat</h3>
-                <p className="text-sm text-green-100">We usually reply instantly</p>
+                <h3 className="font-semibold">{agentName}</h3>
+                <p className="text-xs text-green-100">{agentStatus}</p>
               </div>
             </div>
             <button
@@ -55,32 +58,44 @@ const WhatsappWidget = () => {
           </div>
 
           {/* Chat Body */}
-          <div className="p-4 bg-gray-50">
-            <div className="mb-4">
-              <p className="text-sm text-gray-600 mb-2">
-                Send us a message on WhatsApp and we'll get back to you right away
-              </p>
-              <div className="bg-white p-3 rounded-lg border border-gray-200">
-                <textarea
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Type your message here..."
-                  className="w-full border-none outline-none resize-none text-sm text-gray-700"
-                  rows="3"
-                />
+          <div className="p-4 bg-[#ECE5DD]">
+            <div className="space-y-3 mb-4">
+              <div className="flex justify-start">
+                <div className="max-w-[80%] bg-white text-gray-800 text-sm px-3 py-2 rounded-lg shadow-sm">
+                  Hi! How can we help you today?
+                </div>
+              </div>
+              <div className="flex justify-end">
+                <div className="max-w-[80%] bg-[#DCF8C6] text-gray-800 text-sm px-3 py-2 rounded-lg shadow-sm">
+                  I need help with IT services.
+                </div>
+              </div>
+              <div className="flex justify-start">
+                <div className="max-w-[80%] bg-white text-gray-800 text-sm px-3 py-2 rounded-lg shadow-sm">
+                  Great. Tell us a bit about your project and we will reply fast.
+                </div>
               </div>
             </div>
-            
-            <button
-              onClick={handleWhatsAppClick}
-              className="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-lg font-semibold transition-colors duration-200 flex items-center justify-center space-x-2"
-            >
-              <span>💬</span>
-              <span>Send on WhatsApp</span>
-            </button>
-            
-            <p className="text-xs text-gray-500 text-center mt-3">
-              Click to open WhatsApp with your message
+
+            <div className="bg-white p-2 rounded-lg border border-gray-200 flex items-center gap-2">
+              <textarea
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Type a message"
+                className="flex-1 border-none outline-none resize-none text-sm text-gray-700"
+                rows="2"
+              />
+              <button
+                onClick={handleWhatsAppClick}
+                className="bg-[#25D366] hover:bg-[#1DAE57] text-white p-2 rounded-full transition-colors"
+                aria-label="Send on WhatsApp"
+              >
+                <FiSend className="w-4 h-4" />
+              </button>
+            </div>
+
+            <p className="text-xs text-gray-600 text-center mt-3">
+              Opens WhatsApp with your message
             </p>
           </div>
         </div>
