@@ -4,28 +4,27 @@ import { UserAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 // import supabase from '../superbaseClient';
 import { 
-  FiUser, 
-  FiMail, 
-  FiCalendar, 
-  FiEdit3, 
-  FiSave, 
-  FiX, 
-  FiLogOut, 
-  FiShield, 
-  FiCheckCircle,
-  FiSettings,
-  FiBell,
-  FiHeart,
-  FiStar,
-  FiTrendingUp,
-  FiCamera,
-  FiLock,
-  FiEye,
-  FiEyeOff,
-  FiUpload,
-  FiCheck,
-  FiXCircle
-} from 'react-icons/fi';
+  HiOutlineUser,
+  HiOutlineEnvelope,
+  HiOutlineCalendar,
+  HiOutlinePencilSquare,
+  HiOutlineCheck,
+  HiOutlineXMark,
+  HiOutlineArrowRightOnRectangle,
+  HiOutlineShieldCheck,
+  HiOutlineCheckCircle,
+  HiOutlineCog6Tooth,
+  HiOutlineBell,
+  HiOutlineHeart,
+  HiOutlineStar,
+  HiOutlineTrendingUp,
+  HiOutlineCamera,
+  HiOutlineLockClosed,
+  HiOutlineEye,
+  HiOutlineEyeSlash,
+  HiOutlineArrowUpTray,
+  HiOutlineXCircle
+} from 'react-icons/hi2';
 
 const Profile = () => {
   const { user, logOut } = UserAuth();
@@ -312,10 +311,10 @@ const Profile = () => {
   };
 
   const stats = [
-    { label: 'Projects Completed', value: '10', icon: FiCheckCircle, color: 'text-green-400' },
-    { label: 'Client Satisfaction', value: '98%', icon: FiStar, color: 'text-yellow-400' },
-    { label: 'Years Experience', value: '2+', icon: FiTrendingUp, color: 'text-cyan-400' },
-    { label: 'Technologies', value: '10+', icon: FiHeart, color: 'text-pink-400' }
+    { label: 'Projects Completed', value: '10', icon: HiOutlineCheckCircle, color: 'text-green-400' },
+    { label: 'Client Satisfaction', value: '98%', icon: HiOutlineStar, color: 'text-yellow-400' },
+    { label: 'Years Experience', value: '2+', icon: HiOutlineTrendingUp, color: 'text-cyan-400' },
+    { label: 'Technologies', value: '10+', icon: HiOutlineHeart, color: 'text-pink-400' }
   ];
 
   const recentActivities = [
@@ -339,10 +338,10 @@ const Profile = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="fixed top-4 right-4 z-50"
+              className="HiOutlineXMarked top-4 right-4 z-50"
             >
               <div className="bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center space-x-2">
-                <FiCheck className="w-5 h-5" />
+                <HiOutlineCheck className="w-5 h-5" />
                 <span>{successMessage}</span>
               </div>
             </motion.div>
@@ -356,10 +355,10 @@ const Profile = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="fixed top-4 right-4 z-50"
+              className="HiOutlineXMarked top-4 right-4 z-50"
             >
               <div className="bg-red-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center space-x-2">
-                <FiXCircle className="w-5 h-5" />
+                <HiOutlineXCircle className="w-5 h-5" />
                 <span>{errors.submit}</span>
               </div>
             </motion.div>
@@ -401,13 +400,13 @@ const Profile = () => {
                         className="w-full h-full object-cover"
                       />
                     ) : (
-                      <FiUser className="w-12 h-12 text-white" />
+                      <HiOutlineUser className="w-12 h-12 text-white" />
                     )}
                   </div>
                   
                   {isEditing && (
                     <label className="absolute bottom-0 right-0 bg-cyan-500 hover:bg-cyan-600 text-white p-2 rounded-full cursor-pointer transition-colors">
-                      <FiCamera className="w-4 h-4" />
+                      <HiOutlineCamera className="w-4 h-4" />
                       <input
                         type="file"
                         accept="image/*"
@@ -440,15 +439,15 @@ const Profile = () => {
               {/* Profile Info */}
               <div className="space-y-4 mb-6">
                 <div className="flex items-center space-x-3 text-neutral-300">
-                  <FiMail className="w-5 h-5 text-cyan-400" />
+                  <HiOutlineEnvelope className="w-5 h-5 text-cyan-400" />
                   <span className="text-sm">{profileData.email}</span>
                 </div>
                 <div className="flex items-center space-x-3 text-neutral-300">
-                  <FiCalendar className="w-5 h-5 text-purple-400" />
+                  <HiOutlineCalendar className="w-5 h-5 text-purple-400" />
                   <span className="text-sm">Member since {profileData.joinDate}</span>
                 </div>
                 <div className="flex items-center space-x-3 text-neutral-300">
-                  <FiShield className={`w-5 h-5 ${emailVerified ? 'text-green-400' : 'text-yellow-400'}`} />
+                  <HiOutlineShieldCheck className={`w-5 h-5 ${emailVerified ? 'text-green-400' : 'text-yellow-400'}`} />
                   <span className="text-sm">{emailVerified ? 'Verified Account' : 'Unverified Account'}</span>
                 </div>
               </div>
@@ -461,7 +460,7 @@ const Profile = () => {
                       onClick={handleEdit}
                       className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white py-2 px-4 rounded-lg font-medium transition-all duration-300 flex items-center justify-center space-x-2"
                     >
-                      <FiEdit3 className="w-4 h-4" />
+                      <HiOutlinePencilSquare className="w-4 h-4" />
                       <span>Edit Profile</span>
                     </button>
                     
@@ -469,7 +468,7 @@ const Profile = () => {
                       onClick={() => setShowPasswordForm(true)}
                       className="w-full bg-neutral-700 hover:bg-neutral-600 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center space-x-2"
                     >
-                      <FiLock className="w-4 h-4" />
+                      <HiOutlineLockClosed className="w-4 h-4" />
                       <span>Change Password</span>
                     </button>
                   </>
@@ -482,12 +481,12 @@ const Profile = () => {
                     >
                       {uploading ? (
                         <>
-                          <FiUpload className="w-4 h-4 animate-pulse" />
+                          <HiOutlineArrowUpTray className="w-4 h-4 animate-pulse" />
                           <span>Uploading...</span>
                         </>
                       ) : (
                         <>
-                          <FiSave className="w-4 h-4" />
+                          <HiOutlineCheck className="w-4 h-4" />
                           <span>{saving ? 'Saving...' : 'Save Changes'}</span>
                         </>
                       )}
@@ -496,7 +495,7 @@ const Profile = () => {
                       onClick={handleCancel}
                       className="w-full bg-neutral-600 hover:bg-neutral-700 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center space-x-2"
                     >
-                      <FiX className="w-4 h-4" />
+                      <HiOutlineXMark className="w-4 h-4" />
                       <span>Cancel</span>
                     </button>
                   </div>
@@ -506,7 +505,7 @@ const Profile = () => {
                   onClick={() => setShowLogoutModal(true)}
                   className="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center space-x-2"
                 >
-                  <FiLogOut className="w-4 h-4" />
+                  <HiOutlineArrowRightOnRectangle className="w-4 h-4" />
                   <span>Sign Out</span>
                 </button>
               </div>
@@ -542,7 +541,7 @@ const Profile = () => {
             {/* Profile Form */}
             <div className="glass-panel p-6 rounded-2xl">
               <h3 className="text-xl font-semibold text-white mb-6 flex items-center space-x-2">
-                <FiUser className="w-5 h-5 text-cyan-400" />
+                <HiOutlineUser className="w-5 h-5 text-cyan-400" />
                 <span>Profile Information</span>
               </h3>
               
@@ -631,7 +630,7 @@ const Profile = () => {
             {/* Recent Activities */}
             <div className="glass-panel p-6 rounded-2xl">
               <h3 className="text-xl font-semibold text-white mb-6 flex items-center space-x-2">
-                <FiBell className="w-5 h-5 text-purple-400" />
+                <HiOutlineBell className="w-5 h-5 text-purple-400" />
                 <span>Recent Activities</span>
               </h3>
               
@@ -665,7 +664,7 @@ const Profile = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+            className="HiOutlineXMarked inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -703,7 +702,7 @@ const Profile = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+            className="HiOutlineXMarked inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -731,7 +730,7 @@ const Profile = () => {
                       onClick={() => setShowPassword({ ...showPassword, current: !showPassword.current })}
                       className="absolute right-3 top-3 text-neutral-400 hover:text-neutral-200"
                     >
-                      {showPassword.current ? <FiEyeOff className="w-5 h-5" /> : <FiEye className="w-5 h-5" />}
+                      {showPassword.current ? <HiOutlineEyeSlash className="w-5 h-5" /> : <HiOutlineEye className="w-5 h-5" />}
                     </button>
                   </div>
                   {errors.currentPassword && (
@@ -756,7 +755,7 @@ const Profile = () => {
                       onClick={() => setShowPassword({ ...showPassword, new: !showPassword.new })}
                       className="absolute right-3 top-3 text-neutral-400 hover:text-neutral-200"
                     >
-                      {showPassword.new ? <FiEyeOff className="w-5 h-5" /> : <FiEye className="w-5 h-5" />}
+                      {showPassword.new ? <HiOutlineEyeSlash className="w-5 h-5" /> : <HiOutlineEye className="w-5 h-5" />}
                     </button>
                   </div>
                   {errors.newPassword && (
@@ -781,7 +780,7 @@ const Profile = () => {
                       onClick={() => setShowPassword({ ...showPassword, confirm: !showPassword.confirm })}
                       className="absolute right-3 top-3 text-neutral-400 hover:text-neutral-200"
                     >
-                      {showPassword.confirm ? <FiEyeOff className="w-5 h-5" /> : <FiEye className="w-5 h-5" />}
+                      {showPassword.confirm ? <HiOutlineEyeSlash className="w-5 h-5" /> : <HiOutlineEye className="w-5 h-5" />}
                     </button>
                   </div>
                   {errors.confirmPassword && (
@@ -821,3 +820,4 @@ const Profile = () => {
 };
 
 export default Profile;
+

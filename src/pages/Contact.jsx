@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FiMail, FiPhone, FiMapPin, FiCheckCircle } from 'react-icons/fi';
+import { HiOutlineEnvelope, HiOutlinePhone, HiOutlineMapPin, HiOutlineCheckCircle } from 'react-icons/hi2';
 import { useTheme } from '../theme/ThemeProvider';
 
 // import ApiService from '../services/api'
@@ -79,7 +79,7 @@ const Contact = () => {
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className={`w-12 h-12 flex items-center justify-center rounded-lg ${isDarkMode ? 'bg-cyan-900/30 text-cyan-400' : 'bg-cyan-100 text-cyan-600'} flex-shrink-0 mt-1`}>
-                    <FiMail className="w-6 h-6" />
+                    <HiOutlineEnvelope className="w-6 h-6" />
                   </div>
                   <div>
                     <h3 className={`font-bold mb-1 ${isDarkMode ? 'text-white' : 'text-black'}`}>Email</h3>
@@ -88,7 +88,7 @@ const Contact = () => {
                 </div>
                 <div className="flex items-start gap-4">
                   <div className={`w-12 h-12 flex items-center justify-center rounded-lg ${isDarkMode ? 'bg-cyan-900/30 text-cyan-400' : 'bg-cyan-100 text-cyan-600'} flex-shrink-0 mt-1`}>
-                    <FiPhone className="w-6 h-6" />
+                    <HiOutlinePhone className="w-6 h-6" />
                   </div>
                   <div>
                     <h3 className={`font-bold mb-1 ${isDarkMode ? 'text-white' : 'text-black'}`}>Phone</h3>
@@ -98,7 +98,7 @@ const Contact = () => {
                 </div>
                 <div className="flex items-start gap-4">
                   <div className={`w-12 h-12 flex items-center justify-center rounded-lg ${isDarkMode ? 'bg-cyan-900/30 text-cyan-400' : 'bg-cyan-100 text-cyan-600'} flex-shrink-0 mt-1`}>
-                    <FiMapPin className="w-6 h-6" />
+                    <HiOutlineMapPin className="w-6 h-6" />
                   </div>
                   <div>
                     <h3 className={`font-bold mb-1 ${isDarkMode ? 'text-white' : 'text-black'}`}>Location</h3>
@@ -113,23 +113,23 @@ const Contact = () => {
               <h3 className="text-2xl font-bold mb-4">Why Work With Us?</h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <FiCheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                  <HiOutlineCheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
                   <span>Free initial consultation</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <FiCheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                  <HiOutlineCheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
                   <span>Transparent pricing</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <FiCheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                  <HiOutlineCheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
                   <span>Proven track record</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <FiCheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                  <HiOutlineCheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
                   <span>Ongoing support</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <FiCheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                  <HiOutlineCheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
                   <span>Results-driven approach</span>
                 </li>
               </ul>

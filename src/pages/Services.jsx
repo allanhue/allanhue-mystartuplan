@@ -1,6 +1,16 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiArrowRight, FiCheck, FiBarChart2, FiCode, FiSettings, FiCloud, FiTrendingUp, FiShield } from 'react-icons/fi';
+import { 
+  HiOutlineArrowRight,
+  HiOutlineCheck,
+  HiOutlineCheckCircle,
+  HiOutlineChartBar,
+  HiOutlineCodeBracket,
+  HiOutlineCog6Tooth,
+  HiOutlineCloud,
+  HiOutlineTrendingUp,
+  HiOutlineShieldCheck
+} from 'react-icons/hi2';
 import { useState } from 'react';
 
 const containerVariants = {
@@ -24,7 +34,7 @@ const serviceCategories = [
   {
     id: 1,
     name: 'Data Science & Machine Learning',
-    icon: <FiBarChart2 className="w-12 h-12" />,
+    icon: <HiOutlineChartBar className="w-12 h-12" />,
     description: 'Transform your data into actionable insights with advanced analytics and ML models',
     color: 'cyan',
     features: [
@@ -41,7 +51,7 @@ const serviceCategories = [
   {
     id: 2,
     name: 'Full-Stack  Development',
-    icon: <FiCode className="w-12 h-12" />,
+    icon: <HiOutlineCodeBracket className="w-12 h-12" />,
     description: 'Custom  applications built with modern technologies and best practices',
     color: 'teal',
     features: [
@@ -58,7 +68,7 @@ const serviceCategories = [
   // {
   //   id: 3,
   //   name: 'Mobile App Development',
-  //   icon: <FiCode className="w-12 h-12" />,
+  //   icon: <HiOutlineCodeBracket className="w-12 h-12" />,
   //   description: 'Native and cross-platform mobile applications for iOS and Android',
   //   color: 'blue',
   //   features: [
@@ -75,7 +85,7 @@ const serviceCategories = [
   {
     id: 4,
     name: 'Zoho & Odoo Implementation',
-    icon: <FiSettings className="w-12 h-12" />,
+    icon: <HiOutlineCog6Tooth className="w-12 h-12" />,
     description: 'Enterprise CRM/ERP solutions with custom automation and integrations',
     color: 'emerald',
     features: [
@@ -92,7 +102,7 @@ const serviceCategories = [
   {
     id: 5,
     name: 'Cloud & DevOps Solutions',
-    icon: <FiCloud className="w-12 h-12" />,
+    icon: <HiOutlineCloud className="w-12 h-12" />,
     description: 'Scalable cloud infrastructure and DevOps practices for modern applications',
     color: 'sky',
     features: [
@@ -109,7 +119,7 @@ const serviceCategories = [
   {
     id: 6,
     name: 'IT Consulting & Strategy',
-    icon: <FiBarChart2 className="w-12 h-12" />,
+    icon: <HiOutlineChartBar className="w-12 h-12" />,
     description: 'Strategic technology planning for digital transformation and growth',
     color: 'indigo',
     features: [
@@ -175,7 +185,7 @@ const Services = () => {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex gap-4">
                 <div className="flex-shrink-0 w-6 h-6 rounded-full bg-cyan-500 flex items-center justify-center mt-1">
-                  <FiCheck className="text-white" />
+                  <HiOutlineCheck className="text-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Expert Team</h3>
@@ -184,7 +194,7 @@ const Services = () => {
               </div>
               <div className="flex gap-4">
                 <div className="flex-shrink-0 w-6 h-6 rounded-full bg-cyan-500 flex items-center justify-center mt-1">
-                  <FiCheck className="text-white" />
+                  <HiOutlineCheck className="text-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-2">24/7 Support</h3>
@@ -193,7 +203,7 @@ const Services = () => {
               </div>
               <div className="flex gap-4">
                 <div className="flex-shrink-0 w-6 h-6 rounded-full bg-cyan-500 flex items-center justify-center mt-1">
-                  <FiCheck className="text-white" />
+                  <HiOutlineCheck className="text-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Customized Solutions</h3>
@@ -202,7 +212,7 @@ const Services = () => {
               </div>
               <div className="flex gap-4">
                 <div className="flex-shrink-0 w-6 h-6 rounded-full bg-cyan-500 flex items-center justify-center mt-1">
-                  <FiCheck className="text-white" />
+                  <HiOutlineCheck className="text-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Competitive Pricing</h3>
@@ -252,7 +262,7 @@ const Services = () => {
                 <div className="mb-6 space-y-2">
                   {service.features.slice(0, 3).map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
-                      <FiCheck className="w-4 h-4 text-cyan-500 flex-shrink-0 mt-0.5" />
+                      <HiOutlineCheck className="w-4 h-4 text-cyan-500 flex-shrink-0 mt-0.5" />
                       <span>{feature}</span>
                     </div>
                   ))}
@@ -268,7 +278,7 @@ const Services = () => {
                     className="inline-flex items-center justify-center w-full px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded-lg transition-all duration-200 group-hover:shadow-lg"
                   >
                     Get Started
-                    <FiArrowRight className="ml-2 h-5 w-5" />
+                    <HiOutlineArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </div>
               </motion.div>
@@ -293,7 +303,7 @@ const Services = () => {
               className="bg-white dark:bg-neutral-900 rounded-xl p-8 shadow-md hover:shadow-lg transition-all group"
             >
               <div className="w-14 h-14 flex items-center justify-center rounded-lg bg-cyan-50 dark:bg-neutral-700 text-cyan-600 dark:text-cyan-400 mb-4 group-hover:bg-cyan-100 transition-colors">
-                <FiCheck className="w-8 h-8" />
+                <HiOutlineCheckCircle className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Initial Assessment</h3>
               <p className="text-gray-600 dark:text-gray-400">Free consultation to understand your business needs and current setup</p>
@@ -307,7 +317,7 @@ const Services = () => {
               className="bg-white dark:bg-neutral-900 rounded-xl p-8 shadow-md hover:shadow-lg transition-all group"
             >
               <div className="w-14 h-14 flex items-center justify-center rounded-lg bg-cyan-50 dark:bg-neutral-700 text-cyan-600 dark:text-cyan-400 mb-4 group-hover:bg-cyan-100 transition-colors">
-                <FiTrendingUp className="w-8 h-8" />
+                <HiOutlineTrendingUp className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Implementation</h3>
               <p className="text-gray-600 dark:text-gray-400">Professional setup and configuration by our experienced team</p>
@@ -321,7 +331,7 @@ const Services = () => {
               className="bg-white dark:bg-neutral-900 rounded-xl p-8 shadow-md hover:shadow-lg transition-all group"
             >
               <div className="w-14 h-14 flex items-center justify-center rounded-lg bg-cyan-50 dark:bg-neutral-700 text-cyan-600 dark:text-cyan-400 mb-4 group-hover:bg-cyan-100 transition-colors">
-                <FiShield className="w-8 h-8" />
+                <HiOutlineShieldCheck className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Ongoing Support</h3>
               <p className="text-gray-600 dark:text-gray-400">Continuous monitoring, updates, and support for optimal performance</p>

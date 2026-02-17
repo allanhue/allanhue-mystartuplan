@@ -1,6 +1,16 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiArrowRight, FiShield, FiZap, FiDollarSign, FiClock } from 'react-icons/fi';
+import {
+  HiOutlineArrowRight,
+  HiOutlineShieldCheck,
+  HiOutlineBolt,
+  HiOutlineCurrencyDollar,
+  HiOutlineClock,
+  HiOutlineChartBar,
+  HiOutlineCodeBracket,
+  HiOutlineCog6Tooth,
+  HiOutlineCloud
+} from 'react-icons/hi2';
 
 // Animation variants
 const containerVariants = {
@@ -31,22 +41,22 @@ const features = [
   {
     title: 'Expert Technicians',
     description: 'Our certified technicians have years of experience in handling all types of technical issues.',
-    icon: <FiShield className="w-8 h-8 text-cyan-500 dark:text-teal-400" />,
+    icon: <HiOutlineShieldCheck className="w-8 h-8 text-cyan-500 dark:text-teal-400" />,
   },
   {
     title: 'Fast Response',
     description: 'We offer quick response times to ensure your technical issues are resolved as soon as possible.',
-    icon: <FiZap className="w-8 h-8 text-cyan-500 dark:text-teal-400" />,
+    icon: <HiOutlineBolt className="w-8 h-8 text-cyan-500 dark:text-teal-400" />,
   },
   {
     title: 'Affordable Pricing',
     description: 'High-quality services at competitive prices with no hidden fees.',
-    icon: <FiDollarSign className="w-8 h-8 text-cyan-500 dark:text-teal-400" />,
+    icon: <HiOutlineCurrencyDollar className="w-8 h-8 text-cyan-500 dark:text-teal-400" />,
   },
   {
     title: '24/7 Support',
     description: 'Round-the-clock support to assist you whenever you need help.',
-    icon: <FiClock className="w-8 h-8 text-cyan-500 dark:text-teal-400" />,
+    icon: <HiOutlineClock className="w-8 h-8 text-cyan-500 dark:text-teal-400" />,
   },
 ];
 
@@ -54,25 +64,25 @@ const services = [
   {
     name: 'Data Science & ML',
     description: 'Predictive analytics, machine learning models, and data-driven insights for your business.',
-    icon: '📊',
+    icon: <HiOutlineChartBar className="w-7 h-7 text-cyan-500 dark:text-teal-400" />,
     path: '/services',
   },
   {
     name: 'Full-Stack Development',
     description: 'Custom applications with cutting-edge technologies.',
-    icon: '💻',
+    icon: <HiOutlineCodeBracket className="w-7 h-7 text-cyan-500 dark:text-teal-400" />,
     path: '/services',
   },
   {
     name: 'Zoho & Odoo',
     description: 'CRM/ERP implementation, automation, and custom module development.',
-    icon: '⚙️',
+    icon: <HiOutlineCog6Tooth className="w-7 h-7 text-cyan-500 dark:text-teal-400" />,
     path: '/services',
   },
   {
     name: 'Cloud & DevOps',
     description: 'Cloud infrastructure, deployment automation, and system optimization.',
-    icon: '☁️',
+    icon: <HiOutlineCloud className="w-7 h-7 text-cyan-500 dark:text-teal-400" />,
     path: '/services',
   },
 ];
@@ -99,27 +109,27 @@ const Home = () => {
             variants={containerVariants}
             className="max-w-3xl mx-auto text-center"
           >
-            <motion.h1 
+            <motion.h1
               variants={itemVariants}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
               style={{
-                textShadow: "3px 3px 6px rgba(0,0,0,0.9)",
+                textShadow: '3px 3px 6px rgba(0,0,0,0.9)',
               }}
             >
               Professional IT Solutions for Your Business
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               variants={itemVariants}
               className="text-lg md:text-xl text-white mb-10 max-w-2xl mx-auto font-medium"
               style={{
-                textShadow: "2px 2px 4px rgba(0,0,0,0.9)",
+                textShadow: '2px 2px 4px rgba(0,0,0,0.9)',
               }}
             >
               We provide comprehensive IT services and support to help your business thrive in the digital world.
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               variants={itemVariants}
               className="flex flex-col sm:flex-row justify-center gap-4"
             >
@@ -128,7 +138,7 @@ const Home = () => {
                 className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-md text-white bg-cyan-500 hover:bg-cyan-600 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
               >
                 Our Services
-                <FiArrowRight className="ml-2 h-5 w-5" />
+                <HiOutlineArrowRight className="ml-2 h-5 w-5" />
               </Link>
               <Link
                 to="/contact"
@@ -204,7 +214,7 @@ const Home = () => {
                 className="group bg-white dark:bg-neutral-800 rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 dark:border-neutral-700 hover:border-cyan-500 dark:hover:border-teal-500"
               >
                 <div className="flex items-start mb-4">
-                  <div className="w-14 h-14 rounded-xl bg-cyan-50 dark:bg-neutral-700 flex items-center justify-center text-2xl mr-5 flex-shrink-0 group-hover:bg-cyan-100 dark:group-hover:bg-teal-900/30 transition-colors">
+                  <div className="w-14 h-14 rounded-xl bg-cyan-50 dark:bg-neutral-700 flex items-center justify-center mr-5 flex-shrink-0 group-hover:bg-cyan-100 dark:group-hover:bg-teal-900/30 transition-colors">
                     {service.icon}
                   </div>
                   <div className="flex-1">
@@ -219,7 +229,7 @@ const Home = () => {
                       className="inline-flex items-center px-4 py-2 text-cyan-500 dark:text-teal-400 font-semibold hover:text-cyan-600 dark:hover:text-teal-300 transition-colors border-b-2 border-transparent hover:border-cyan-500 dark:hover:border-teal-400"
                     >
                       Learn more
-                      <FiArrowRight className="ml-2 h-4 w-4" />
+                      <HiOutlineArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </div>
                 </div>
@@ -233,7 +243,7 @@ const Home = () => {
               className="inline-flex items-center px-8 py-3.5 text-base font-semibold rounded-md text-white bg-cyan-500 hover:bg-cyan-600 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
             >
               View All Services
-              <FiArrowRight className="ml-2 h-5 w-5" />
+              <HiOutlineArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </div>
         </div>
@@ -249,19 +259,19 @@ const Home = () => {
             variants={containerVariants}
             className="max-w-4xl mx-auto"
           >
-            <motion.h2 
+            <motion.h2
               variants={itemVariants}
               className="text-4xl md:text-5xl font-bold text-white mb-4"
             >
               Ready to Transform Your Business?
             </motion.h2>
-            <motion.p 
+            <motion.p
               variants={itemVariants}
               className="text-xl md:text-2xl text-white/95 mb-6 max-w-2xl mx-auto"
             >
-              Get in touch with our team today and let's discuss how we can help your business grow.
+              Get in touch with our team today and let us discuss how we can help your business grow.
             </motion.p>
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="flex flex-wrap justify-center gap-3 mb-8"
             >
@@ -275,7 +285,7 @@ const Home = () => {
                 Affordable Pricing
               </span>
             </motion.div>
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="flex flex-col sm:flex-row justify-center gap-4"
             >
