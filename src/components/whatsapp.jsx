@@ -7,7 +7,7 @@ const WhatsappWidget = () => {
   const [message, setMessage] = useState('');
 
   const phoneNumber = '+254731430273';
-  const defaultMessage = 'Hello Allan, I would like to discuss IT solutions for my business.';
+  const defaultMessage = 'Hi';
   const agentName = 'Lanstar Support';
   const agentStatus = 'Online';
 
@@ -59,36 +59,25 @@ const WhatsappWidget = () => {
 
           {/* Chat Body */}
           <div className="p-4 bg-[#ECE5DD]">
-            <div className="space-y-3 mb-4">
+            <div className="mb-4">
               <div className="flex justify-start">
                 <div className="max-w-[80%] bg-white text-gray-800 text-sm px-3 py-2 rounded-lg shadow-sm">
-                  Hi! How can we help you today?
-                </div>
-              </div>
-              <div className="flex justify-end">
-                <div className="max-w-[80%] bg-[#DCF8C6] text-gray-800 text-sm px-3 py-2 rounded-lg shadow-sm">
-                  I need help with IT services.
-                </div>
-              </div>
-              <div className="flex justify-start">
-                <div className="max-w-[80%] bg-white text-gray-800 text-sm px-3 py-2 rounded-lg shadow-sm">
-                  Great. Tell us a bit about your project and we will reply fast.
+                  Hi
                 </div>
               </div>
             </div>
 
             <div className="bg-white p-2 rounded-lg border border-gray-200 flex items-center gap-2">
-              <textarea
+              <input
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                placeholder="Type a message"
-                className="flex-1 border-none outline-none resize-none text-sm text-gray-700"
-                rows="2"
+                placeholder="Hi"
+                className="flex-1 border-none outline-none text-sm text-gray-700"
               />
               <button
                 onClick={handleWhatsAppClick}
                 className="bg-[#25D366] hover:bg-[#1DAE57] text-white p-2 rounded-full transition-colors"
-                aria-label="Send on WhatsApp"
+                aria-label="Open WhatsApp"
               >
                 <FiSend className="w-4 h-4" />
               </button>

@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { UserAuth } from '../context/AuthContext';
-import { FiMenu, FiX, FiUser, FiLogIn, FiLogOut, FiSun, FiMoon } from 'react-icons/fi';
+import { FiMenu, FiX, FiUser, FiLogIn, FiLogOut } from 'react-icons/fi';
+import { HiOutlineHome, HiOutlineBriefcase, HiOutlineInformationCircle, HiOutlinePhone } from 'react-icons/hi2';
 import ThemeToggle from './ThemeToggle';
 import { useTheme } from '../theme/ThemeProvider';
 
@@ -26,11 +27,10 @@ export default function Navbar() {
   }, [scrolled]);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' },
-    { name: 'Preferences', path: '/preferences' },
+    { name: 'Home', path: '/', icon: HiOutlineHome },
+    { name: 'Services', path: '/services', icon: HiOutlineBriefcase },
+    { name: 'About', path: '/about', icon: HiOutlineInformationCircle },
+    { name: 'Contact', path: '/contact', icon: HiOutlinePhone },
   ];
 
   return (
@@ -64,6 +64,7 @@ export default function Navbar() {
                     : 'text-neutral-200 hover:text-white dark:text-neutral-300 dark:hover:text-white'
                 }`}
               >
+                <link.icon className="w-4 h-4 inline mr-2" />
                 {link.name}
               </Link>
             ))}
@@ -120,7 +121,8 @@ export default function Navbar() {
                   ? 'text-neutral-700 hover:text-cyan-500 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800'
                   : 'text-neutral-200 hover:text-white dark:text-neutral-300 dark:hover:text-white'
               }`}
-              aria-expanded="false"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-nav"
             >
               <span className="sr-only">Open main menu</span>
               {menuOpen ? (
@@ -135,6 +137,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
+        id="mobile-nav"
         className={`md:hidden transition-all duration-300 ease-in-out ${
           menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
         }`}
@@ -149,6 +152,7 @@ export default function Navbar() {
               className="block px-3 py-2 rounded-md text-base font-medium text-neutral-200 hover:text-white hover:bg-white/10 dark:text-neutral-300 dark:hover:text-white dark:hover:bg-neutral-800 transition-colors duration-200 no-underline"
               onClick={() => setMenuOpen(false)}
             >
+              <link.icon className="w-4 h-4 inline mr-2" />
               {link.name}
             </Link>
           ))}
