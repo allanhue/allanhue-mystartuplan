@@ -8,7 +8,7 @@ import {
   HiOutlineCodeBracket,
   HiOutlineCog6Tooth,
   HiOutlineCloud,
-  HiOutlineTrendingUp,
+  HiOutlineArrowTrendingUp,
   HiOutlineShieldCheck
 } from 'react-icons/hi2';
 import { useState } from 'react';
@@ -317,7 +317,7 @@ const Services = () => {
               className="bg-white dark:bg-neutral-900 rounded-xl p-8 shadow-md hover:shadow-lg transition-all group"
             >
               <div className="w-14 h-14 flex items-center justify-center rounded-lg bg-cyan-50 dark:bg-neutral-700 text-cyan-600 dark:text-cyan-400 mb-4 group-hover:bg-cyan-100 transition-colors">
-                <HiOutlineTrendingUp className="w-8 h-8" />
+                <HiOutlineArrowTrendingUp className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Implementation</h3>
               <p className="text-gray-600 dark:text-gray-400">Professional setup and configuration by our experienced team</p>

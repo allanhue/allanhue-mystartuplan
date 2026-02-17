@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import {
   HiOutlineUserGroup,
   HiOutlineFlag,
-  HiOutlineTrendingUp,
+  HiOutlineArrowTrendingUp,
   HiOutlineUserCircle,
   HiOutlineChartBar,
   HiOutlineCodeBracket,
@@ -38,7 +38,7 @@ const About = () => {
         <div className={`${isDarkMode ? 'bg-neutral-800 text-white' : 'bg-black text-white'} p-8 rounded-lg hover:shadow-lg transition-all group`}>
           <div className="flex items-start gap-4 mb-4">
             <div className={`w-12 h-12 flex items-center justify-center rounded-lg ${isDarkMode ? 'bg-cyan-600' : 'bg-cyan-500'} text-white flex-shrink-0 group-hover:scale-110 transition-transform`}>
-              <HiOutlineTrendingUp className="w-6 h-6" />
+              <HiOutlineArrowTrendingUp className="w-6 h-6" />
             </div>
             <h2 className="text-3xl font-bold">Our Vision</h2>
           </div>

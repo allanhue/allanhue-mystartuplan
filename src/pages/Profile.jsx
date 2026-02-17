@@ -17,7 +17,7 @@ import {
   HiOutlineBell,
   HiOutlineHeart,
   HiOutlineStar,
-  HiOutlineTrendingUp,
+  HiOutlineArrowTrendingUp,
   HiOutlineCamera,
   HiOutlineLockClosed,
   HiOutlineEye,
@@ -313,7 +313,7 @@ const Profile = () => {
   const stats = [
     { label: 'Projects Completed', value: '10', icon: HiOutlineCheckCircle, color: 'text-green-400' },
     { label: 'Client Satisfaction', value: '98%', icon: HiOutlineStar, color: 'text-yellow-400' },
-    { label: 'Years Experience', value: '2+', icon: HiOutlineTrendingUp, color: 'text-cyan-400' },
+    { label: 'Years Experience', value: '2+', icon: HiOutlineArrowTrendingUp, color: 'text-cyan-400' },
     { label: 'Technologies', value: '10+', icon: HiOutlineHeart, color: 'text-pink-400' }
   ];
 
