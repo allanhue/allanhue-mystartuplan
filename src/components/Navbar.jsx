@@ -114,7 +114,7 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <div className="flex md:hidden items-center space-x-2">
             <ThemeToggle />
-            <button
+            {/* <button
               onClick={() => setMenuOpen(!menuOpen)}
               className={`inline-flex items-center justify-center p-2 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500 ${
                 scrolled
@@ -130,7 +130,7 @@ export default function Navbar() {
               ) : (
                 <FiMenu className="block h-6 w-6" />
               )}
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

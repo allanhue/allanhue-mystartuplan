@@ -62,16 +62,7 @@ const ThemeCustomizer = () => {
   return (
     <>
       {/* Toggle Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={`fixed right-4 top-20 z-50 p-3 rounded-lg shadow-lg transition-all duration-200 ${
-          isDarkMode 
-            ? 'bg-neutral-800 text-white hover:bg-neutral-700' 
-            : 'bg-white text-gray-800 hover:bg-gray-100'
-        } ${isOpen ? 'scale-90' : 'hover:scale-105'}`}
-        aria-label="Customize theme"
-      >
-        {isOpen ? <FiX className="w-5 h-5" /> : <FiSettings className="w-5 h-5" />}
+      <button>
       </button>
 
       {/* Customizer Panel */}
