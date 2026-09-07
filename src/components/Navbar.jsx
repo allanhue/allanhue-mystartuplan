@@ -5,6 +5,7 @@ import { FiMenu, FiX, FiUser, FiLogIn, FiLogOut } from 'react-icons/fi';
 import { HiOutlineHome, HiOutlineBriefcase, HiOutlineInformationCircle, HiOutlinePhone } from 'react-icons/hi2';
 import ThemeToggle from './ThemeToggle';
 import { useTheme } from '../theme/ThemeProvider';
+import LanstarMark from './LanstarMark';
 
 export default function Navbar() {
   const authContext = UserAuth() || {};
@@ -46,8 +47,9 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center">
-              <span className="text-2xl font-extrabold bg-gradient-to-r from-cyan-400 via-teal-400 to-cyan-500 bg-clip-text text-transparent tracking-tight">
-                Lanstar
+              <LanstarMark className="h-10 w-10" />
+              <span className="ml-2 text-2xl font-extrabold bg-gradient-to-r from-cyan-400 via-teal-400 to-cyan-500 bg-clip-text text-transparent tracking-tight">
+                Lanstar <span className="font-semibold text-sm tracking-normal text-teal-300">Solutions</span>
               </span>
             </Link>
           </div>

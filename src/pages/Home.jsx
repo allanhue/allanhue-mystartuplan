@@ -116,7 +116,7 @@ const Home = () => {
                 textShadow: '3px 3px 6px rgba(0,0,0,0.9)',
               }}
             >
-              Professional IT Solutions for Your Business
+              Professional Software Solutions for Your Business
             </motion.h1>
 
             <motion.p
@@ -126,26 +126,14 @@ const Home = () => {
                 textShadow: '2px 2px 4px rgba(0,0,0,0.9)',
               }}
             >
-              We provide comprehensive IT services and support to help your business thrive in the digital world.
+              We provide comprehensive Software services and support to help your business thrive in the digital world.
             </motion.p>
 
             <motion.div
               variants={itemVariants}
               className="flex flex-col sm:flex-row justify-center gap-4"
             >
-              {/* <Link
-                to="/services"
-                className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-md text-white bg-cyan-500 hover:bg-cyan-600 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
-              >
-                Our Services
-                <HiOutlineArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-md text-white border-2 border-white/80 hover:bg-white/10 transition-all duration-200"
-              >
-                Get Started
-              </Link> */}
+       
             </motion.div>
           </motion.div>
         </div>

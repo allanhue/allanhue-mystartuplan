@@ -60,12 +60,12 @@ const About = () => {
             </div>
             <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-black'}`}>Allan Mwangi</h3>
             <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-6`}>
-              Software Engineer & Business Automation Specialist
+              Software Developer & Data Science Specialist
             </p>
             <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed mb-6`}>
               With extensive experience in data science, software development and business process automation,
-              Allan founded Lanstar Solutions to help businesses leverage technology for growth and efficiency.
-              His expertise spans across multiple domains including machine learning, applications/SaaS development,
+              he founded Lanstar Solutions to help businesses leverage technology for growth and efficiency.
+              His expertise spans across multiple domains including machine learning, applications/SaaS development
               and enterprise system implementation.
             </p>
             <div className="grid md:grid-cols-3 gap-4 text-center">
@@ -79,7 +79,7 @@ const About = () => {
                 <div className="flex items-center justify-center mb-2">
                   <HiOutlineCodeBracket className="w-7 h-7 text-cyan-500" />
                 </div>
-                <div className={`font-semibold ${isDarkMode ? 'text-white' : 'text-black'}`}>Full-Stack Developer</div>
+                <div className={`font-semibold ${isDarkMode ? 'text-white' : 'text-black'}`}>Software  Developer</div>
               </div>
               <div className={`${isDarkMode ? 'bg-neutral-700' : 'bg-gray-50'} p-4 rounded-lg`}>
                 <div className="flex items-center justify-center mb-2">

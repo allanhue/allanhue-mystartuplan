@@ -84,12 +84,12 @@ const serviceCategories = [
   // },
   {
     id: 4,
-    name: 'Zoho & Odoo Implementation',
+    name: 'ERP/Saas Implementation',
     icon: <HiOutlineCog6Tooth className="w-12 h-12" />,
-    description: 'Enterprise CRM/ERP solutions with custom automation and integrations',
+    description: 'Enterprise ERP solutions with custom automation and integrations',
     color: 'emerald',
     features: [
-      'Zoho CRM/One implementation',
+      'Zoho Erp implementation',
       'Odoo ERP setup & configuration / Python  Scripting',
       'Deluge scripting & customization',
       'Workflow automation',

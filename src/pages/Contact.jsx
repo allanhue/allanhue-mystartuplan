@@ -103,7 +103,7 @@ const Contact = () => {
                   <div>
                     <h3 className={`font-bold mb-1 ${isDarkMode ? 'text-white' : 'text-black'}`}>Location</h3>
                     <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Nairobi, Kenya</p>
-                    <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} text-sm`}>Serving clients globally</p>
+                    <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} text-sm`}>Headquarters</p>
                   </div>
                 </div>
               </div>

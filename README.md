@@ -1,24 +1,7 @@
-# Lanstar Solutions - Complete IT Solutions Platform
-
-
-
+# Lanstar Solutions -  Solutions Platform
 ##  System Overview
 
-Lanstar Solutions is a complete IT services platform that provides:
-- **Frontend**: Modern React application with futuristic dark theme
-- **Real-time Communication**: WhatsApp integration for instant client support
-
-
-
-
-## 🎨 Frontend Features
-
-### Design & Theme
-- **Futuristic Dark Theme**: Deep navy/charcoal backgrounds with vibrant gradients
-- **Modern Typography**: Nunito font family for sleek, professional appearance
-- **Responsive Design**: Mobile-first approach with Tailwind CSS
-- **Smooth Animations**: Framer Motion for engaging user interactions
-- **Glassmorphism Effects**: Modern card designs with backdrop blur
+Lanstar Solutions is a complete software services platform that provides:
 
 ### Core Components
 - **Navigation**: Fixed navbar with theme toggle and authentication
@@ -55,7 +38,7 @@ Lanstar Solutions is a complete IT services platform that provides:
 
 
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 ### Frontend
 - **React 18**: Modern UI framework
