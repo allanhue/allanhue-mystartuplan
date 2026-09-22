@@ -50,7 +50,7 @@ const About = () => {
         </div>
       </div>
 
-      {/* Founder Section */}
+      {/* Founder Section
       <div className="text-center mb-16">
         <h2 className={`text-4xl font-bold mb-12 ${isDarkMode ? 'text-white' : 'text-black'}`}>The Founder</h2>
         <div className="max-w-4xl mx-auto">
@@ -90,7 +90,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Our Approach */}
       <div className="mb-16">
